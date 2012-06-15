@@ -9,6 +9,9 @@
  */
 class Controller_Backend extends \app\Controller_HTTP
 {
-	// @todo write implementation for \ibidem\backend\Controller_Backend
+	function action_index()
+	{
+		
+	}
 
 } # class
