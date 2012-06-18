@@ -1,11 +1,77 @@
-/* Image:
- *   image-width($image), image-height($image)
- * Embedding:
- *   inline-image($image, [$mime-type])
- *   inline-font-files([$font, $format]*)
- * Math:
- *   pi(), sin($number), cos($number), tan($number)
- * Contrast:
- *   contrast-color($color, [$dark], [$light], [$threshold]), 
- *   contrasted($background-color, [$dark], [$light], [$threshold])
- */
+/* line 12, ../src/unsorted.scss */
+.ui-dashboard {
+  -webkit-box-shadow: black -2px -2px 10px inset;
+  -moz-box-shadow: black -2px -2px 10px inset;
+  box-shadow: black -2px -2px 10px inset;
+  font-size: 12px;
+  line-height: 20px;
+  width: 250px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MyMDA1NiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc2MDAzNCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-linear-gradient(top left, #c20056, #760034);
+  background: -moz-linear-gradient(top left, #c20056, #760034);
+  background: -o-linear-gradient(top left, #c20056, #760034);
+  background: -ms-linear-gradient(top left, #c20056, #760034);
+  background: linear-gradient(top left, #c20056, #760034);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+/* line 27, ../src/unsorted.scss */
+.ui-dashboard header h1 {
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+/* line 32, ../src/unsorted.scss */
+.ui-dashboard header p {
+  padding-left: 5px;
+  font-size: 10px;
+  line-height: 10px;
+}
+/* line 40, ../src/unsorted.scss */
+.ui-dashboard > .padder {
+  padding: 10px 10px 10px 0;
+}
+/* line 44, ../src/unsorted.scss */
+.ui-dashboard hr {
+  margin-left: 5px;
+}
+/* line 48, ../src/unsorted.scss */
+.ui-dashboard a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+}
+/* line 54, ../src/unsorted.scss */
+.ui-dashboard a:hover {
+  background: #fff;
+  color: #222;
+}
+/* line 58, ../src/unsorted.scss */
+.ui-dashboard h1 a:hover {
+  background: none;
+  color: white;
+}
+/* line 63, ../src/unsorted.scss */
+.ui-dashboard ul ul li a {
+  padding-left: 20px;
+}
+/* line 67, ../src/unsorted.scss */
+.ui-dashboard ul > li > strong > a {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* line 73, ../src/unsorted.scss */
+#page {
+  padding-left: 250px;
+}
+/* line 77, ../src/unsorted.scss */
+#page > .padder {
+  padding: 20px;
+}
