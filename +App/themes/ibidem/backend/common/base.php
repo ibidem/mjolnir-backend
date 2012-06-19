@@ -19,7 +19,7 @@
 	}
 ?>
 
-<nav class="ui-dashboard" role="navigation">
+<nav class="js-dashboard ui-dashboard" role="navigation">
 
 	<div class="padder">
 
@@ -57,6 +57,11 @@
 
 <div id="page">
 	<div class="padder">
+		
+		<noscript>
+			Please whitelist the script(s) from this domain.
+		</noscript>
+		
 		<?= $view->render() ?>
 	</div>
 </div>

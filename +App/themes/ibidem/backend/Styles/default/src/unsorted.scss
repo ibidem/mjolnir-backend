@@ -6,20 +6,22 @@
 
 @import 'lib/bootstrap';
 
-$unit      : 10px;
-$nav_width : $unit * 25;
+$unit         : 10px;
+$nav_width    : $unit * 25;
+$hover_margin : 10px;
 
 .ui-dashboard {
 
-	$bg   : #c20056;
-	$fg   : #fff;
+	// Variables
+	$bg : #c20056;
+	$fg : #fff;
 
 	@include box-shadow(#000 -2px -2px $unit inset);
 	font-size: $unit * 1.2; line-height: $unit * 2;
 	width: $nav_width;
 	@include background(linear-gradient(top left, $bg, darken($bg, 15%)));
 	color: $fg;
-	position: absolute; left: 0; top: 0;
+	position: absolute; left: - ($nav_width - $hover_margin); top: 0;
 	@include stretch-y;
 
 	header {
@@ -35,7 +37,6 @@ $nav_width : $unit * 25;
 		}
 
 	}
-
 
 	& > .padder {
 		padding: $unit $unit $unit 0;	
@@ -72,9 +73,155 @@ $nav_width : $unit * 25;
 
 #page {
 
-	padding-left: $nav_width;
+	padding-left: $hover_margin;
 
 	& > .padder {
-		padding: $unit * 2;
+		padding: $unit * 2 $unit * 2 $unit * 2 $unit * 5;
 	}
+
+}
+
+[role='application'] form {
+
+	padding: $unit;
+
+	dl {
+
+		dt {
+			font-weight: bold;
+			font-style: italic;
+			font-size: $unit * 1.2; line-height: $unit * 2;
+			padding-top: $unit;
+		}
+
+		dd {
+			padding-left: $unit * 2;
+		}
+
+	}
+
+	input {
+
+		font-size: $unit * 2; 
+		padding: $unit / 2;
+		
+		&[type='text'], 
+		&[type='password'] {
+			width: 40 * $unit;
+		}
+
+	}
+
+	select {
+		font-size: $unit * 1.5; line-height: $unit * 2;
+		width: 20 * $unit;
+	}
+
+	button {
+		font-size: $unit * 1.5; line-height: $unit * 2;
+	}
+
+	hr {
+		width: $unit * 50;
+	}
+
+}
+
+table {
+
+	// Variables
+	$bg : #444;
+	$fg : #fff;
+
+	min-width: 40 * $unit;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	margin-top: $unit * 2 - 1px;
+	margin-bottom: $unit * 2 - 1px;
+	border-collapse: separate;
+
+	tbody {
+
+		th {
+			font-style: italic;
+		}
+
+	}
+
+	thead {
+
+		font-family: monospace; 
+		font-size: $unit * 1.6; line-height: $unit * 2;
+
+		th {
+			text-align: left;
+			padding-top: $unit / 2;
+			padding-bottom: $unit / 2;
+		}
+
+	}
+
+}
+
+.pager {
+
+	.previous-page,
+	.next-page {
+		
+		display: inline-block;
+
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+
+	}
+
+	.pager-currentnav,
+	.pager-pagenav,
+	.pager-jumpto {
+		display: inline-block;
+		margin-right: $unit * 2;
+	}
+
+	.pager-page {
+		
+		display: inline-block;
+
+		a {
+			color: #000;
+			text-decoration: underline;
+			padding: 2px 5px;
+
+		}
+
+		a:hover {
+			color: #e53;
+			text-decoration: none;
+		}
+
+	}
+
+}
+
+h2 {
+	font-size: $unit * 5; line-height: $unit * 5;
+}
+
+h3 {
+	font-size: $unit * 3; line-height: $unit * 3;
+}
+
+.empty {
+	margin: $unit * 2;
+}
+
+noscript {
+	display: block;
+	background: red; 
+	font: #fff;
+}
+
+.errors {
+	color: #e31;
 }

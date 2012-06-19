@@ -1,4 +1,4 @@
-/* line 12, ../src/unsorted.scss */
+/* line 13, ../src/unsorted.scss */
 .ui-dashboard {
   -webkit-box-shadow: black -2px -2px 10px inset;
   -moz-box-shadow: black -2px -2px 10px inset;
@@ -14,64 +14,194 @@
   background: linear-gradient(top left, #c20056, #760034);
   color: white;
   position: absolute;
-  left: 0;
+  left: -240px;
   top: 0;
   position: absolute;
   top: 0;
   bottom: 0;
 }
-/* line 27, ../src/unsorted.scss */
+/* line 29, ../src/unsorted.scss */
 .ui-dashboard header h1 {
   font-size: 30px;
   line-height: 30px;
   margin-top: 10px;
 }
-/* line 32, ../src/unsorted.scss */
+/* line 34, ../src/unsorted.scss */
 .ui-dashboard header p {
   padding-left: 5px;
   font-size: 10px;
   line-height: 10px;
 }
-/* line 40, ../src/unsorted.scss */
+/* line 41, ../src/unsorted.scss */
 .ui-dashboard > .padder {
   padding: 10px 10px 10px 0;
 }
-/* line 44, ../src/unsorted.scss */
+/* line 45, ../src/unsorted.scss */
 .ui-dashboard hr {
   margin-left: 5px;
 }
-/* line 48, ../src/unsorted.scss */
+/* line 49, ../src/unsorted.scss */
 .ui-dashboard a {
   color: #fff;
   text-decoration: none;
   display: block;
   padding: 5px;
 }
-/* line 54, ../src/unsorted.scss */
+/* line 55, ../src/unsorted.scss */
 .ui-dashboard a:hover {
   background: #fff;
   color: #222;
 }
-/* line 58, ../src/unsorted.scss */
+/* line 59, ../src/unsorted.scss */
 .ui-dashboard h1 a:hover {
   background: none;
   color: white;
 }
-/* line 63, ../src/unsorted.scss */
+/* line 64, ../src/unsorted.scss */
 .ui-dashboard ul ul li a {
   padding-left: 20px;
 }
-/* line 67, ../src/unsorted.scss */
+/* line 68, ../src/unsorted.scss */
 .ui-dashboard ul > li > strong > a {
   font-size: 13px;
   line-height: 20px;
 }
 
-/* line 73, ../src/unsorted.scss */
+/* line 74, ../src/unsorted.scss */
 #page {
-  padding-left: 250px;
+  padding-left: 10px;
 }
-/* line 77, ../src/unsorted.scss */
+/* line 78, ../src/unsorted.scss */
 #page > .padder {
-  padding: 20px;
+  padding: 20px 20px 20px 50px;
+}
+
+/* line 84, ../src/unsorted.scss */
+[role='application'] form {
+  padding: 10px;
+}
+/* line 90, ../src/unsorted.scss */
+[role='application'] form dl dt {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 20px;
+  padding-top: 10px;
+}
+/* line 97, ../src/unsorted.scss */
+[role='application'] form dl dd {
+  padding-left: 20px;
+}
+/* line 103, ../src/unsorted.scss */
+[role='application'] form input {
+  font-size: 20px;
+  padding: 5px;
+}
+/* line 109, ../src/unsorted.scss */
+[role='application'] form input[type='text'], [role='application'] form input[type='password'] {
+  width: 400px;
+}
+/* line 115, ../src/unsorted.scss */
+[role='application'] form select {
+  font-size: 15px;
+  line-height: 20px;
+  width: 200px;
+}
+/* line 120, ../src/unsorted.scss */
+[role='application'] form button {
+  font-size: 15px;
+  line-height: 20px;
+}
+/* line 124, ../src/unsorted.scss */
+[role='application'] form hr {
+  width: 500px;
+}
+
+/* line 130, ../src/unsorted.scss */
+table {
+  min-width: 400px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin-top: 19px;
+  margin-bottom: 19px;
+  border-collapse: separate;
+}
+/* line 145, ../src/unsorted.scss */
+table tbody th {
+  font-style: italic;
+}
+/* line 151, ../src/unsorted.scss */
+table thead {
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 20px;
+}
+/* line 156, ../src/unsorted.scss */
+table thead th {
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 169, ../src/unsorted.scss */
+.pager .previous-page,
+.pager .next-page {
+  display: inline-block;
+}
+/* line 173, ../src/unsorted.scss */
+.pager .previous-page a,
+.pager .next-page a {
+  color: #000;
+  text-decoration: none;
+}
+/* line 182, ../src/unsorted.scss */
+.pager .pager-currentnav,
+.pager .pager-pagenav,
+.pager .pager-jumpto {
+  display: inline-block;
+  margin-right: 20px;
+}
+/* line 187, ../src/unsorted.scss */
+.pager .pager-page {
+  display: inline-block;
+}
+/* line 191, ../src/unsorted.scss */
+.pager .pager-page a {
+  color: #000;
+  text-decoration: underline;
+  padding: 2px 5px;
+}
+/* line 198, ../src/unsorted.scss */
+.pager .pager-page a:hover {
+  color: #e53;
+  text-decoration: none;
+}
+
+/* line 207, ../src/unsorted.scss */
+h2 {
+  font-size: 50px;
+  line-height: 50px;
+}
+
+/* line 211, ../src/unsorted.scss */
+h3 {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* line 215, ../src/unsorted.scss */
+.empty {
+  margin: 20px;
+}
+
+/* line 219, ../src/unsorted.scss */
+noscript {
+  display: block;
+  background: red;
+  font: #fff;
+}
+
+/* line 225, ../src/unsorted.scss */
+.errors {
+  color: #e31;
 }

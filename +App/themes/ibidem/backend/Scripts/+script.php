@@ -17,10 +17,14 @@
 		// mapping targets to files
 		'targets' => array
 			(
-				'frontend' => array
-					(
-						'frontend'
-					),
+				'backend/wrapper' => 
+					[
+						'dashboard' 
+					],
+				'backend/dashboard' => 
+					[
+						'dashboard'
+					],
 			),
 	);
 

@@ -14,4 +14,4 @@ $mvc_stack = function ($relay, $target)
 			);
 	};
 
-\app\Relay::process('\ibidem\backend\backend', $mvc_stack);
+\app\Relay::process('\ibidem\backend', $mvc_stack);

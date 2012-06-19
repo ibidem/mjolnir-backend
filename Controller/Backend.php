@@ -22,6 +22,22 @@ class Controller_Backend extends \app\Controller_HTTP
 		return $this->page;
 	}
 	
+	function before() 
+	{
+		parent::before();
+		// backend ignores language settings since different modules can be 
+		// injected in and (most likely) none of them will know which language 
+		// to support
+		\app\Lang::lang('en-us');
+		
+		$this->layer->dispatch
+			(
+				\app\Event::instance()
+					->subject(\ibidem\types\Event::title)
+					->contents('Backend')
+			);
+	}
+	
 	function action_index()
 	{
 		$this->page = \app\View::instance('ibidem/backend/dashboard')
@@ -33,31 +49,60 @@ class Controller_Backend extends \app\Controller_HTTP
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
 					->target('backend/dashboard')
+					->layer($this->layer)
 					->control($this)
-					->context($this)
+					->context(\app\Context_Backend::instance())
 					->render()
 			);
 	}
 	
 	function view($config)
 	{
+		$this->page = \app\View::instance($config['view'])
+			->variable('context', $config['context']::instance())
+			->variable('control', $this);
+		
 		$this->body
 			(
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
-					->variable
-						(
-							'page', 
-							\app\View::instance($config['view'])
-								->variable('context', $config['context']::instance())
-								->variable('control', $this)
-						)
+					->target('backend/wrapper')
+					->layer($this->layer)
+					->control($this)
+					->context(\app\Context_Backend::instance())
+					->render()
+			);
+	}
+	
+	function task($task, $config)
+	{
+		$context = $config['context']::instance();
+		
+		$task = \str_replace('-', '_', \strtolower($task));
+		$errors = \call_user_func([$context, 'action_'.$task]);
+		
+		$this->page = \app\View::instance($config['view'])
+			->variable('context', $context)
+			->variable('control', $this)
+			->variable('errors', $errors);
+		
+		$this->body
+			(
+				\app\ThemeView::instance()
+					->theme('ibidem/backend')
+					->target('backend/wrapper')
+					->layer($this->layer)
+					->control($this)
+					->context(\app\Context_Backend::instance())
+					->render()
 			);
 	}
 	
 	function action_route()
 	{
 		$slug = $this->params->get('slug', null);
+		$task = $this->params->get('task', null);
+		
 		if ($slug === null)
 		{
 			$this->action_index();
@@ -67,28 +112,48 @@ class Controller_Backend extends \app\Controller_HTTP
 		{
 			// validate
 			$backend_config = \app\CFS::config('ibidem/backend');
-			foreach ($backend_config as $group => $tools)
+			if (\app\Access::can('\ibidem\backend', null, $slug))
 			{
-				foreach ($tools as $key => $tool)
+				foreach ($backend_config as $group => $tools)
 				{
-					if ($key == $backend_config)
+					foreach ($tools as $key => $tool)
 					{
-						if (\app\Access::can('backend', null, [$key]))
+						if ($key == $slug)
 						{
-							$this->view($tool);
-							return;
-						}
-						else # doesn't have access to signin
-						{
-							\app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
+							if ($task === null)
+							{
+								$this->view($tool);
+								return;
+							}
+							else # task provided
+							{
+								$this->task($task, $tool);
+								return;
+							}
 						}
 					}
 				}
 			}
+			else # doesn't have access
+			{
+				echo 'access denied'; die;
+				// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
+			}
 		}
-		
+
 		// failed everything; assume misaccess
-		\app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
+		echo 'failed, access denied'; die;
+		// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
+	}
+	
+	/**
+	 * @param string action
+	 * @return string 
+	 */	
+	public function action($action)
+	{
+		$relay = $this->layer->get_relay();
+		return $relay['route']->url(['task' => $action, 'slug' => $this->params->get('slug')]);
 	}
 
 } # class
