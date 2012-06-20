@@ -43,14 +43,17 @@ class Context_Backend extends \app\Instantiatable
 			
 			foreach ($tools as $slug => $tool)
 			{
-				if (\app\Access::can('\ibidem\backend', null, $slug))
+				if ( ! isset($tool['hidden']) || ! $tool['hidden'])
 				{
-					$resultset['tools'][] = array
-						(
-							'title' => $tool['title'],
-							'url' => \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]),
-							'slug' => $slug
-						);
+					if (\app\Access::can('\ibidem\backend', null, $slug))
+					{
+						$resultset['tools'][] = array
+							(
+								'title' => $tool['title'],
+								'url' => \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]),
+								'slug' => $slug
+							);
+					}
 				}
 			}
 			

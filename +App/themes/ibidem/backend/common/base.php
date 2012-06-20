@@ -59,7 +59,7 @@
 	<div class="padder">
 		
 		<noscript>
-			Please whitelist the script(s) from this domain.
+			Hi! Please whitelist script(s) from this domain; otherwise site functions may not work, or will function inadequetly.
 		</noscript>
 		
 		<?= $view->render() ?>

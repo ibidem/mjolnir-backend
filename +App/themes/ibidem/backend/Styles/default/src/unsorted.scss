@@ -6,14 +6,15 @@
 
 @import 'lib/bootstrap';
 
+// globals
 $unit         : 10px;
 $nav_width    : $unit * 25;
 $hover_margin : 10px;
 
 .ui-dashboard {
 
-	// Variables
-	$bg : #c20056;
+	// local
+	$bg : #c26056;
 	$fg : #fff;
 
 	@include box-shadow(#000 -2px -2px $unit inset);
@@ -129,7 +130,7 @@ $hover_margin : 10px;
 
 table {
 
-	// Variables
+	// local
 	$bg : #444;
 	$fg : #fff;
 
@@ -137,7 +138,7 @@ table {
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
 	margin-top: $unit * 2 - 1px;
-	margin-bottom: $unit * 2 - 1px;
+	margin-bottom: $unit - 1px;
 	border-collapse: separate;
 
 	tbody {
@@ -157,6 +158,21 @@ table {
 			text-align: left;
 			padding-top: $unit / 2;
 			padding-bottom: $unit / 2;
+		}
+
+	}
+
+	td, th {
+		padding-right: $unit;
+		padding-bottom: $unit / 2;
+	}
+
+	td form {
+
+		display: inline-block;
+
+		div {
+			display: inline-block;
 		}
 
 	}
@@ -217,9 +233,13 @@ h3 {
 }
 
 noscript {
-	display: block;
-	background: red; 
+	display: inline-block;
+	padding: $unit;
+	background: #d27; color: #fff;
+	border: 3px solid #fff;
+	outline: 1px solid #000;
 	font: #fff;
+	margin: $unit 0 $unit * 3 0;
 }
 
 .errors {

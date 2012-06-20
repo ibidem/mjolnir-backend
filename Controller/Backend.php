@@ -155,5 +155,15 @@ class Controller_Backend extends \app\Controller_HTTP
 		$relay = $this->layer->get_relay();
 		return $relay['route']->url(['task' => $action, 'slug' => $this->params->get('slug')]);
 	}
+	
+	/**
+	 * @param string slug
+	 * @return string URL
+	 */
+	function backend($slug)
+	{
+		return \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]);
+	}
+
 
 } # class
