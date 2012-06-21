@@ -11,7 +11,7 @@
 		'common' => array
 			(
 				'lib/plugins/jquery-1.7.2',
-				'lib/DCI-1.0',
+//				'lib/DCI-1.0',
 			),
 
 		// mapping targets to files
@@ -19,11 +19,11 @@
 			(
 				'backend/wrapper' => 
 					[
-						'dashboard' 
+					//	'dashboard' 
 					],
 				'backend/dashboard' => 
 					[
-						'dashboard'
+					//	'dashboard'
 					],
 			),
 	);

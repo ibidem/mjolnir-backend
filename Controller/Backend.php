@@ -136,13 +136,13 @@ class Controller_Backend extends \app\Controller_HTTP
 			}
 			else # doesn't have access
 			{
-				echo 'access denied'; die;
+				echo 'Access denied.'; die;
 				// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 			}
 		}
 
 		// failed everything; assume misaccess
-		echo 'failed, access denied'; die;
+		echo 'Access denied.'; die;
 		// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 	}
 	

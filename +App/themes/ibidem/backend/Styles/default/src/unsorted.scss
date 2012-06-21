@@ -14,7 +14,7 @@ $hover_margin : 10px;
 .ui-dashboard {
 
 	// local
-	$bg : #c26056;
+	$bg : #587498; // #ad1722;
 	$fg : #fff;
 
 	@include box-shadow(#000 -2px -2px $unit inset);
@@ -22,7 +22,7 @@ $hover_margin : 10px;
 	width: $nav_width;
 	@include background(linear-gradient(top left, $bg, darken($bg, 15%)));
 	color: $fg;
-	position: absolute; left: - ($nav_width - $hover_margin); top: 0;
+	position: absolute; left: 0; top: 0;
 	@include stretch-y;
 
 	header {
@@ -47,10 +47,14 @@ $hover_margin : 10px;
 		margin-left: $unit / 2;
 	}
 	
-	a {
+	a, strong {
 		color: #fff;
 		text-decoration: none;
 		display: block; padding: $unit / 2;
+	}
+
+	strong {
+		cursor: default;
 	}
 
 	a:hover {
@@ -74,7 +78,7 @@ $hover_margin : 10px;
 
 #page {
 
-	padding-left: $hover_margin;
+	padding-left: $nav_width;
 
 	& > .padder {
 		padding: $unit * 2 $unit * 2 $unit * 2 $unit * 5;
