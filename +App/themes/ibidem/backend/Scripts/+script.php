@@ -17,14 +17,7 @@
 		// mapping targets to files
 		'targets' => array
 			(
-				'backend/wrapper' => 
-					[
-					//	'dashboard' 
-					],
-				'backend/dashboard' => 
-					[
-					//	'dashboard'
-					],
+				
 			),
 	);
 
