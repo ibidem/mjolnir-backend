@@ -135,13 +135,13 @@ table tbody th {
   font-style: italic;
 }
 /* line 156, ../src/unsorted.scss */
-table thead {
+table thead, table tfoot {
   font-family: monospace;
   font-size: 16px;
   line-height: 20px;
 }
 /* line 161, ../src/unsorted.scss */
-table thead th {
+table thead th, table tfoot th {
   text-align: left;
   padding-top: 5px;
   padding-bottom: 5px;
