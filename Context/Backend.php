@@ -15,6 +15,11 @@ class Context_Backend extends \app\Instantiatable
 	private $view;
 	
 	/**
+	 * @var string|null
+	 */
+	private $pageslug;
+	
+	/**
 	 * @param \ibidem\types\View view
 	 */
 	function set_view(\ibidem\types\View $view)
@@ -50,6 +55,7 @@ class Context_Backend extends \app\Instantiatable
 						$resultset['tools'][] = array
 							(
 								'title' => $tool['title'],
+								'icon' => isset($tool['icon']) ? $tool['icon'] : null,
 								'url' => \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]),
 								'slug' => $slug
 							);
@@ -69,6 +75,18 @@ class Context_Backend extends \app\Instantiatable
 		}
 		
 		return $result;
+	}
+	
+	function set_pageslug($pageslug)
+	{
+		$this->pageslug = $pageslug;
+		
+		return $this;
+	}
+	
+	function pageslug()
+	{
+		return $this->pageslug;
 	}
 
 } # class

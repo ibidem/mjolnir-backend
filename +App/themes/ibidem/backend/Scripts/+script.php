@@ -11,13 +11,21 @@
 		'common' => array
 			(
 				'lib/plugins/jquery-1.7.2',
-//				'lib/DCI-1.0',
+				'lib/twitter/bootstrap'
 			),
 
 		// mapping targets to files
 		'targets' => array
 			(
-				
+				// the following empty rules are simply here to tell the theme
+				// to load javascript for the two targets the backend module
+				// makes use of
+				'backend/dashboard' => [
+					// loads common
+				],
+				'backend/wrapper' => [ 
+					// loads common
+				],
 			),
 	);
 

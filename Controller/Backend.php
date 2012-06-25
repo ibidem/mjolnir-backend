@@ -164,6 +164,11 @@ class Controller_Backend extends \app\Controller_HTTP
 	{
 		return \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]);
 	}
+	
+	function pageslug()
+	{
+		return $this->params->get('slug', null);
+	}
 
 
 } # class

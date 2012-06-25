@@ -9,7 +9,11 @@
 		// common files
 		'common' => array
 			(
-				'lib/boilerplate', 'unsorted'
+				'lib/twitter/bootstrap', 
+				'lib/twitter/corrections', 
+				'lib/ancillary-1.0',
+				'lib/font-awesome',
+				'unsorted'
 			),
 	
 		// mapping targets to files

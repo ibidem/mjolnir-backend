@@ -1,0 +1,18 @@
+body:before {
+	background:#FFBABA;
+	color:#DB000C;
+	border:2px solid #DB000C;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius:15px;
+	font-weight:bold;
+	left: 40px;
+	right: 40px;
+    padding: 50px;
+    position: fixed;
+    top: -2px;
+    z-index: 10000000;
+}
+
+:focus {
+	outline:0
+}

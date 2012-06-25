@@ -1,10 +1,13 @@
-<h2>Loaded Modules</h2>
+<? namespace app; ?>
+
+<h1>Named Components</h1>
+
 <? $versions = \app\CFS::config('version') ?>
 
-<table>
+<table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Module</th>
+			<th>Components</th>
 			<th>Version</th>
 		</tr>
 	</thead>
