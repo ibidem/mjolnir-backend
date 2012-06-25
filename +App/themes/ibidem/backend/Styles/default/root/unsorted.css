@@ -1,0 +1,18 @@
+/* line 7, ../src/unsorted.scss */
+body {
+  padding-top: 10px;
+  overflow-y: scroll;
+}
+
+/* line 12, ../src/unsorted.scss */
+.errors {
+  color: #e31;
+  padding: 0;
+  margin: 0;
+}
+/* line 19, ../src/unsorted.scss */
+.errors li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
