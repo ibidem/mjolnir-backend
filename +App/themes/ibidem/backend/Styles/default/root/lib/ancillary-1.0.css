@@ -18,3 +18,8 @@ body:before {
 :focus {
   outline: 0;
 }
+
+/* line 20, ../../src/lib/ancillary-1.0.scss */
+.xdebug-var-dump {
+  margin: 10px;
+}
