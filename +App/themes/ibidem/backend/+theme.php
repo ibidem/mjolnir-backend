@@ -6,12 +6,12 @@
 		// mapping targets to files
 		'targets' => array
 			(
-				'backend/wrapper' => 
+				'wrapper' => 
 					[
 						'common/base',
 						'wrapper' 
 					],
-				'backend/dashboard' => 
+				'dashboard' => 
 					[
 						'common/base',
 						'dashboard'

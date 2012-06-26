@@ -4,6 +4,7 @@
 http_path = ""
 css_dir = "root"
 images_dir = "root/images"
+fonts_dir = "root/fonts"
 relative_assets = true
 
 # Output style

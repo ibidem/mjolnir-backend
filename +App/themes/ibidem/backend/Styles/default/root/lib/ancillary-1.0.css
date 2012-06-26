@@ -15,21 +15,40 @@ body:before {
 }
 
 /* line 18, ../../src/lib/ancillary-1.0.scss */
+body {
+  padding-top: 10px;
+  overflow-y: scroll;
+}
+
+/* line 23, ../../src/lib/ancillary-1.0.scss */
+.errors {
+  color: #e31;
+  padding: 0;
+  margin: 0;
+}
+/* line 30, ../../src/lib/ancillary-1.0.scss */
+.errors li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 37, ../../src/lib/ancillary-1.0.scss */
 :focus {
   outline: 0;
 }
 
-/* line 22, ../../src/lib/ancillary-1.0.scss */
+/* line 41, ../../src/lib/ancillary-1.0.scss */
 .xdebug-var-dump {
   margin: 10px;
 }
 
-/* line 26, ../../src/lib/ancillary-1.0.scss */
+/* line 45, ../../src/lib/ancillary-1.0.scss */
 .marginless {
   margin: 0;
 }
 
-/* line 30, ../../src/lib/ancillary-1.0.scss */
+/* line 49, ../../src/lib/ancillary-1.0.scss */
 .marginless-pagination > .pagination {
   margin: 0;
 }

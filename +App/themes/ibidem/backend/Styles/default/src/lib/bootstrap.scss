@@ -78,8 +78,12 @@ $contrasted-lightness-threshold : 30%;
 // default image folder; relative to output
 $images-dir : "images/" !default;
 
+// default font folders
+$fontAwesomePath: 'fontawesome-webfont';
+
 // variables
 
 $fg_color : #222;
 $bg_color : #eee;
+
 

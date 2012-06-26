@@ -20,10 +20,10 @@
 				// the following empty rules are simply here to tell the theme
 				// to load javascript for the two targets the backend module
 				// makes use of
-				'backend/dashboard' => [
+				'dashboard' => [
 					// loads common
 				],
-				'backend/wrapper' => [ 
+				'wrapper' => [ 
 					// loads common
 				],
 			),

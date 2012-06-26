@@ -48,7 +48,7 @@ class Controller_Backend extends \app\Controller_HTTP
 			(
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
-					->target('backend/dashboard')
+					->target('dashboard')
 					->layer($this->layer)
 					->control($this)
 					->context(\app\Context_Backend::instance())
@@ -66,7 +66,7 @@ class Controller_Backend extends \app\Controller_HTTP
 			(
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
-					->target('backend/wrapper')
+					->target('wrapper')
 					->layer($this->layer)
 					->control($this)
 					->context(\app\Context_Backend::instance())
@@ -90,7 +90,7 @@ class Controller_Backend extends \app\Controller_HTTP
 			(
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
-					->target('backend/wrapper')
+					->target('wrapper')
 					->layer($this->layer)
 					->control($this)
 					->context(\app\Context_Backend::instance())

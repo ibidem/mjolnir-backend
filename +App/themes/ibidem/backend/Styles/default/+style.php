@@ -9,18 +9,14 @@
 		// common files
 		'common' => array
 			(
-				'lib/twitter/bootstrap', 
-				'lib/twitter/corrections', 
-				'lib/ancillary-1.0',
-				'lib/font-awesome',
-				'unsorted'
+				'unsorted',
 			),
 	
 		// mapping targets to files
 		'targets' => array
 			(
-				'backend/dashboard' => [ 'dashboard' ],
-				'backend/wrapper' => [ 'dashboard' ],
+				'dashboard' => [ ],
+				'wrapper'   => [ ],
 			),
 	);
 
