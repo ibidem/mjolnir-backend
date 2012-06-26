@@ -1,4 +1,4 @@
-/* line 1, ../../src/lib/ancillary-1.0.scss */
+/* line 3, ../../src/lib/ancillary-1.0.scss */
 body:before {
   background: #FFBABA;
   color: #DB000C;
@@ -14,12 +14,22 @@ body:before {
   z-index: 10000000;
 }
 
-/* line 16, ../../src/lib/ancillary-1.0.scss */
+/* line 18, ../../src/lib/ancillary-1.0.scss */
 :focus {
   outline: 0;
 }
 
-/* line 20, ../../src/lib/ancillary-1.0.scss */
+/* line 22, ../../src/lib/ancillary-1.0.scss */
 .xdebug-var-dump {
   margin: 10px;
+}
+
+/* line 26, ../../src/lib/ancillary-1.0.scss */
+.marginless {
+  margin: 0;
+}
+
+/* line 30, ../../src/lib/ancillary-1.0.scss */
+.marginless-pagination > .pagination {
+  margin: 0;
 }

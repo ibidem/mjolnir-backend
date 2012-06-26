@@ -8,7 +8,7 @@
 	$site_title = $base_config['site:title'];
 	$base_url = '//'.$base_config['domain'].$base_config['path'].$base_config['site:frontend'];
 ?>
-	
+
 <div class="container">
 
 	<div class="navbar">

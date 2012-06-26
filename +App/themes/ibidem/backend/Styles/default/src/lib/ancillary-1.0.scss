@@ -1,3 +1,5 @@
+@import 'bootstrap';
+
 body:before {
 	background:#FFBABA;
 	color:#DB000C;
@@ -19,4 +21,12 @@ body:before {
 
 .xdebug-var-dump {
 	margin: 10px;
+}
+
+.marginless {
+	margin: 0;
+}
+
+.marginless-pagination > .pagination {
+	margin: 0;
 }
