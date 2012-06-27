@@ -30,11 +30,28 @@ class Controller_Backend extends \app\Controller_HTTP
 		// to support
 		\app\Lang::lang('en-us');
 		
+		$slug = $this->params->get('slug', null);
+		
+		if ($slug !== null)
+		{
+			$tool = self::tool_config($slug);
+			if ($tool === null)
+			{
+				throw new \app\Exception_NotAllowed('Access Denied.');
+			}
+			
+			$page_title = 'Backend · '.$tool['title'];
+		}
+		else # no slug
+		{
+			$page_title = 'Backend';
+		}
+		
 		$this->layer->dispatch
 			(
 				\app\Event::instance()
 					->subject(\ibidem\types\Event::title)
-					->contents('Backend')
+					->contents($page_title)
 			);
 	}
 	
@@ -96,7 +113,7 @@ class Controller_Backend extends \app\Controller_HTTP
 					->context(\app\Context_Backend::instance())
 					->render()
 			);
-	}
+	}	
 	
 	function action_route()
 	{
@@ -110,38 +127,38 @@ class Controller_Backend extends \app\Controller_HTTP
 		}
 		else # slug is present
 		{
-			// validate
-			$backend_config = \app\CFS::config('ibidem/backend');
+			// validate			
 			if (\app\Access::can('\ibidem\backend', null, $slug))
 			{
-				foreach ($backend_config as $group => $tools)
+				$tool = self::tool_config($slug);
+				
+				if ($tool == null)
 				{
-					foreach ($tools as $key => $tool)
-					{
-						if ($key == $slug)
-						{
-							if ($task === null)
-							{
-								$this->view($tool);
-								return;
-							}
-							else # task provided
-							{
-								$this->task($task, $tool);
-								return;
-							}
-						}
-					}
+					throw new \app\Exception_NotAllowed('Access Denied.');
+				}
+				
+				if ($task === null)
+				{
+					$this->view($tool);
+					return;
+				}
+				else # task provided
+				{
+					$this->task($task, $tool);
+					return;
 				}
 			}
 			else # doesn't have access
 			{
+				throw new \app\Exception_NotAllowed('Access Denied.');
 				echo 'Access denied.'; die;
+				
 				// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 			}
 		}
 
 		// failed everything; assume misaccess
+		throw new \app\Exception_NotAllowed('Access Denied.');
 		echo 'Access denied.'; die;
 		// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 	}
@@ -168,6 +185,23 @@ class Controller_Backend extends \app\Controller_HTTP
 	function pageslug()
 	{
 		return $this->params->get('slug', null);
+	}
+	
+	private static function tool_config($slug)
+	{
+		$backend_config = \app\CFS::config('ibidem/backend');
+		foreach ($backend_config as $group => $tools)
+		{
+			foreach ($tools as $key => $tool)
+			{
+				if ($key == $slug)
+				{
+					return $tool;
+				}
+			}
+		}
+		
+		return null;
 	}
 
 
