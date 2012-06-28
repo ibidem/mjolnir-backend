@@ -43,12 +43,17 @@ body {
   margin: 10px;
 }
 
-/* line 45, ../../src/lib/ancillary-1.0.scss */
+/* line 46, ../../src/lib/ancillary-1.0.scss */
+.micro-col {
+  width: 1%;
+}
+
+/* line 51, ../../src/lib/ancillary-1.0.scss */
 .marginless {
   margin: 0;
 }
 
-/* line 49, ../../src/lib/ancillary-1.0.scss */
+/* line 57, ../../src/lib/ancillary-1.0.scss */
 .marginless-pagination > .pagination {
   margin: 0;
 }
