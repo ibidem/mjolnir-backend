@@ -42,18 +42,3 @@ body {
 	margin: 10px;
 }
 
-// make table column take as little space as possible
-.micro-col {
-	width: 1%;
-}
-
-// strips margins off of an element
-.marginless {
-	margin: 0;
-}
-
-// strips margins out of pagination; since we rarely have direct class control
-// over it this class is meant to be placed on the immediate parent container
-.marginless-pagination > .pagination {
-	margin: 0;
-}

@@ -42,18 +42,3 @@ body {
 .xdebug-var-dump {
   margin: 10px;
 }
-
-/* line 46, ../../src/lib/ancillary-1.0.scss */
-.micro-col {
-  width: 1%;
-}
-
-/* line 51, ../../src/lib/ancillary-1.0.scss */
-.marginless {
-  margin: 0;
-}
-
-/* line 57, ../../src/lib/ancillary-1.0.scss */
-.marginless-pagination > .pagination {
-  margin: 0;
-}

@@ -75,3 +75,21 @@ button.btn.btn-large [class*=" icon-"]:before {
 .marginless-pagination > .pagination {
   margin: 0;
 }
+
+/* line 75, ../../../src/lib/twitter/extra.scss */
+.table-controls {
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+/* line 82, ../../../src/lib/twitter/extra.scss */
+.table-controls > a {
+  vertical-align: top;
+  margin: 0 .2em 0 0;
+}
+/* line 87, ../../../src/lib/twitter/extra.scss */
+.table-controls > form {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}

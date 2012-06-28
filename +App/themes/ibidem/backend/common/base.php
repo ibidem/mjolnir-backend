@@ -1,9 +1,9 @@
-<? namespace app; 
+<?  
 	/* @var $context \app\Context_Backend */
 	/* @var $control \app\Controller_Backend */
-?>
 
-<?
+	namespace app;
+
 	$base_config = \app\CFS::config('ibidem/base');
 	$site_title = $base_config['site:title'];
 	$base_url = '//'.$base_config['domain'].$base_config['path'].$base_config['site:frontend'];
@@ -21,28 +21,29 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<div class="row">
 
 		<nav role="navigation" class="span3">
 
-			<? $page_slug = $control->pageslug() ?>
-
-			<ul class="nav nav-list well">
-				<? foreach ($context->dashboard() as $group): ?>
-					<li class="nav-header"><strong><?= $group['title'] ?></strong></li>
-					<? foreach ($group['tools'] as $tool): ?>
-						<li<?= $page_slug == $tool['slug'] ? ' class="active"' : '' ?>>
-							<a href="<?= $tool['url'] ?>">
-								<? if ($tool['icon'] !== null): ?>
-									<i class="icon-<?= $tool['icon'] ?>"></i>
-								<? endif; ?>
-								<?= $tool['title'] ?>
-							</a>
-						</li>
+			<div class="well" style="padding: 8px 0;">
+				<? $page_slug = $control->pageslug() ?>
+				<ul class="nav nav-list">
+					<? foreach ($context->dashboard() as $group): ?>
+						<li class="nav-header"><strong><?= $group['title'] ?></strong></li>
+						<? foreach ($group['tools'] as $tool): ?>
+							<li<?= $page_slug == $tool['slug'] ? ' class="active"' : '' ?>>
+								<a href="<?= $tool['url'] ?>">
+									<? if ($tool['icon'] !== null): ?>
+										<i class="icon-<?= $tool['icon'] ?>"></i>
+									<? endif; ?>
+									<?= $tool['title'] ?>
+								</a>
+							</li>
+						<? endforeach; ?>
 					<? endforeach; ?>
-				<? endforeach; ?>
-			</ul>
+				</ul>
+			</div>
 
 		</nav>
 
@@ -68,5 +69,5 @@
 		</section>
 
 	</div>
-
+	
 </div>

@@ -69,3 +69,25 @@ button.btn.btn-large [class*=" icon-"]:before {
 .marginless-pagination > .pagination {
 	margin: 0;
 }
+
+// a container for table buttons and links
+// causes them to work togheter properly when inline
+.table-controls {
+	
+	// make table cell occupy exact size
+	vertical-align: top;
+	white-space: nowrap;
+	width: 1%;
+
+	& > a {
+		vertical-align: top;
+		margin: 0 .2em 0 0;
+	}
+
+	& > form {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+	}
+
+}

@@ -13,11 +13,16 @@ class Backend_Collection extends \app\Instantiatable
 	protected $model = null;
 	protected $index = null;
 	
+	protected function resolve_class()
+	{
+		return '\app\Model_'.$this->model;
+	}
+	
 	function action_new()
 	{
 		if (\app\Layer_HTTP::request_method() === \ibidem\types\HTTP::POST)
 		{
-			$class = '\app\Model_DB_'.$this->model;
+			$class = static::resolve_class();
 			if ($validator = $class::factory($_POST))
 			{
 				$key = \strtolower($this->model).'-new';
@@ -47,7 +52,7 @@ class Backend_Collection extends \app\Instantiatable
 	{
 		$id = $_POST['id'];
 		
-		$class = '\app\Model_DB_'.$this->model;
+		$class = static::resolve_class();
 		$validator = $class::update($id, $_POST);
 		
 		$errors = [];
@@ -77,16 +82,16 @@ class Backend_Collection extends \app\Instantiatable
 	{
 		if (isset($_POST['selected']) && ! empty($_POST['selected']))
 		{
-			$class = '\app\Model_DB_'.$this->model;
+			$class = static::resolve_class();
 			$class::delete($_POST['selected']);
 		}
 	}
 	
 	function action_erase()
 	{
-		$class = '\app\Model_DB_'.$this->model;
+		$class = static::resolve_class();
 		$class::delete([$_POST['id']]);
-		\app\Model_DB_User::delete([$_POST['id']]);
+		\app\Model_User::delete([$_POST['id']]);
 		
 		\app\Layer_HTTP::redirect
 			(
@@ -97,19 +102,19 @@ class Backend_Collection extends \app\Instantiatable
 	
 	function entries($page, $limit, $offset = 0)
 	{
-		$class = '\app\Model_DB_'.$this->model;
+		$class = static::resolve_class();
 		return $class::entries($page, $limit, $offset);
 	}
 	
 	function entry($id)
 	{
-		$class = '\app\Model_DB_'.$this->model;
+		$class = '\app\Model_'.$this->model;
 		return $class::entry($id);
 	}
 	
 	function pager()
 	{
-		$class = '\app\Model_DB_'.$this->model;
+		$class = static::resolve_class();
 		return \app\Pager::instance($class::count());
 	}
 
