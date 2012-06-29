@@ -91,7 +91,6 @@ class Backend_Collection extends \app\Instantiatable
 	{
 		$class = static::resolve_class();
 		$class::delete([$_POST['id']]);
-		\app\Model_User::delete([$_POST['id']]);
 		
 		\app\Layer_HTTP::redirect
 			(
