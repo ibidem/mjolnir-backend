@@ -40,7 +40,7 @@ class Controller_Backend extends \app\Controller_HTTP
 				throw new \app\Exception_NotAllowed('Access Denied.');
 			}
 			
-			$page_title = 'Backend · '.$tool['title'];
+			$page_title = $tool['title'].' · Backend';
 		}
 		else # no slug
 		{
