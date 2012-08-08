@@ -23,15 +23,15 @@ class Backend_Collection extends \app\Instantiatable
 		if (\app\Layer_HTTP::request_method() === \ibidem\types\HTTP::POST)
 		{
 			$class = static::resolve_class();
-			if ($validator = $class::factory($_POST))
+			if ($errors = $class::push($_POST))
 			{
 				$key = \strtolower($this->model).'-new';
 				return array
 					(
-						$key => $validator->validate(),
+						$key => $errors,
 					);
 			}
-			else # $validator is null (success)
+			else # errors is null (success
 			{
 				\app\Layer_HTTP::redirect
 					(
@@ -53,13 +53,7 @@ class Backend_Collection extends \app\Instantiatable
 		$id = $_POST['id'];
 		
 		$class = static::resolve_class();
-		$validator = $class::update($id, $_POST);
-		
-		$errors = [];
-		if ($validator !== null)
-		{
-			$errors = $validator->validate();
-		}
+		$errors = $class::update($id, $_POST)->errors();
 		
 		if (empty($errors))
 		{
@@ -99,10 +93,10 @@ class Backend_Collection extends \app\Instantiatable
 			);
 	}
 	
-	function entries($page, $limit, $offset = 0)
+	function entries($page, $limit, $offset = 0, array $order = [])
 	{
 		$class = static::resolve_class();
-		return $class::entries($page, $limit, $offset);
+		return $class::entries($page, $limit, $offset, $order);
 	}
 	
 	function entry($id)
