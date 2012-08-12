@@ -53,7 +53,7 @@ class Backend_Collection extends \app\Instantiatable
 		$id = $_POST['id'];
 		
 		$class = static::resolve_class();
-		$errors = $class::update($id, $_POST)->errors();
+		$errors = $class::update($id, $_POST);
 		
 		if (empty($errors))
 		{
