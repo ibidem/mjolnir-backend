@@ -22,6 +22,9 @@ class Controller_Backend extends \app\Controller_HTTP
 		return $this->page;
 	}
 	
+	/**
+	 * General purpose settings.
+	 */
 	function before() 
 	{
 		parent::before();
@@ -47,14 +50,12 @@ class Controller_Backend extends \app\Controller_HTTP
 			$page_title = 'Backend';
 		}
 		
-		$this->layer->dispatch
-			(
-				\app\Event::instance()
-					->subject(\ibidem\types\Event::title)
-					->contents($page_title)
-			);
+		\app\GlobalEvent::fire('webpage:title', $page_title);
 	}
 	
+	/**
+	 * Show backend.
+	 */
 	function action_index()
 	{
 		$this->page = \app\View::instance('ibidem/backend/dashboard')
@@ -73,6 +74,9 @@ class Controller_Backend extends \app\Controller_HTTP
 			);
 	}
 	
+	/**
+	 * Render view.
+	 */
 	function view($config)
 	{
 		$this->page = \app\View::instance($config['view'])
@@ -91,6 +95,9 @@ class Controller_Backend extends \app\Controller_HTTP
 			);
 	}
 	
+	/**
+	 * Backend task.
+	 */
 	function task($task, $config)
 	{
 		$context = $config['context']::instance();
@@ -115,6 +122,9 @@ class Controller_Backend extends \app\Controller_HTTP
 			);
 	}	
 	
+	/**
+	 * Route to slug and task.
+	 */
 	function action_route()
 	{
 		$slug = $this->params->get('slug', null);
@@ -151,16 +161,11 @@ class Controller_Backend extends \app\Controller_HTTP
 			else # doesn't have access
 			{
 				throw new \app\Exception_NotAllowed('Access Denied.');
-				echo 'Access denied.'; die;
-				
-				// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 			}
 		}
 
 		// failed everything; assume misaccess
 		throw new \app\Exception_NotAllowed('Access Denied.');
-		echo 'Access denied.'; die;
-		// \app\Layer_HTTP::redirect('\ibidem\access\a12n', ['action' => 'signin']);
 	}
 	
 	/**
@@ -182,11 +187,18 @@ class Controller_Backend extends \app\Controller_HTTP
 		return \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]);
 	}
 	
+	/**
+	 * @return string page slug
+	 */
 	function pageslug()
 	{
 		return $this->params->get('slug', null);
 	}
 	
+	/**
+	 * @param string slug
+	 * @return tool or null
+	 */
 	private static function tool_config($slug)
 	{
 		$backend_config = \app\CFS::config('ibidem/backend');

@@ -15,7 +15,7 @@ class Context_Backend extends \app\Instantiatable
 	private $view;
 	
 	/**
-	 * @var string|null
+	 * @var string or null
 	 */
 	private $pageslug;
 	
@@ -27,11 +27,17 @@ class Context_Backend extends \app\Instantiatable
 		$this->view = $view;
 	}
 	
+	/**
+	 * @return string
+	 */
 	function view()
 	{
 		return $this->view;
 	}
 	
+	/**
+	 * @return array
+	 */
 	function dashboard()
 	{
 		$backend_config = \app\CFS::config('ibidem/backend');
@@ -77,6 +83,9 @@ class Context_Backend extends \app\Instantiatable
 		return $result;
 	}
 	
+	/**
+	 * @return \app\Context_Backend $this
+	 */
 	function set_pageslug($pageslug)
 	{
 		$this->pageslug = $pageslug;
@@ -84,6 +93,9 @@ class Context_Backend extends \app\Instantiatable
 		return $this;
 	}
 	
+	/**
+	 * @return string
+	 */
 	function pageslug()
 	{
 		return $this->pageslug;

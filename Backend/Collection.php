@@ -9,15 +9,27 @@
  */
 class Backend_Collection extends \app\Instantiatable
 {
-	// configuration
+	/**
+	 * @var string
+	 */
 	protected $model = null;
+	
+	/**
+	 * @var string
+	 */
 	protected $index = null;
 	
+	/**
+	 * @return string class
+	 */
 	protected function resolve_class()
 	{
 		return '\app\Model_'.$this->model;
 	}
 	
+	/**
+	 * Action for creating new elements in the collection.
+	 */
 	function action_new()
 	{
 		if (\app\Layer_HTTP::request_method() === \ibidem\types\HTTP::POST)
@@ -48,6 +60,9 @@ class Backend_Collection extends \app\Instantiatable
 			->url(['slug' => $this->index]);	
 	}
 	
+	/**
+	 * Action for updating elements in the collection.
+	 */
 	function action_update()
 	{
 		$id = $_POST['id'];
@@ -72,6 +87,9 @@ class Backend_Collection extends \app\Instantiatable
 		}
 	}
 	
+	/**
+	 * Action for deleting elements in the collection.
+	 */
 	function action_delete()
 	{
 		if (isset($_POST['selected']) && ! empty($_POST['selected']))
@@ -81,6 +99,9 @@ class Backend_Collection extends \app\Instantiatable
 		}
 	}
 	
+	/**
+	 * Action for deleting a single element in the collection.
+	 */
 	function action_erase()
 	{
 		$class = static::resolve_class();
@@ -93,18 +114,27 @@ class Backend_Collection extends \app\Instantiatable
 			);
 	}
 	
+	/**
+	 * @return array of arrays; collection entries
+	 */
 	function entries($page, $limit, $offset = 0, array $order = [])
 	{
 		$class = static::resolve_class();
 		return $class::entries($page, $limit, $offset, $order);
 	}
 	
+	/**
+	 * @return array collection entry
+	 */
 	function entry($id)
 	{
 		$class = '\app\Model_'.$this->model;
 		return $class::entry($id);
 	}
 	
+	/**
+	 * @return \app\Pager
+	 */
 	function pager()
 	{
 		$class = static::resolve_class();
