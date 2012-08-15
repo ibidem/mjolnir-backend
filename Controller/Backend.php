@@ -51,6 +51,19 @@ class Controller_Backend extends \app\Controller_HTTP
 		}
 		
 		\app\GlobalEvent::fire('webpage:title', $page_title);
+		
+		$jquery = \app\Relay::route('\ibidem\theme\Layer_Theme::script')
+			->url
+			(
+				[
+					'theme' => 'ibidem/backend',
+					'style' => 'default',
+					'version' => '0.0',
+					'target' => 'src/lib/plugins/jquery-1.7.2.min'
+				]
+			);
+
+		\app\GlobalEvent::fire('webpage:head-script', $jquery);
 	}
 	
 	/**
@@ -58,10 +71,6 @@ class Controller_Backend extends \app\Controller_HTTP
 	 */
 	function action_index()
 	{
-		$this->page = \app\View::instance('ibidem/backend/dashboard')
-			->variable('context', $this)
-			->variable('control', $this);
-		
 		$this->body
 			(
 				\app\ThemeView::instance()
