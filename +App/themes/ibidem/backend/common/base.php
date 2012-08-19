@@ -16,10 +16,10 @@
 			<div class="container">
 				<a class="brand" href="<?= $base_url ?>"><?= $site_title ?></a>
 				<ul class="nav">
-					<li><a href="<?= \app\Relay::route('\ibidem\backend')->url() ?>"><i class="icon-cogs"></i> System Information</a></li>
+					<li><a href="<?= \app\URL::route('\ibidem\backend')->url() ?>"><i class="icon-cogs"></i> System Information</a></li>
 				</ul>
 				<ul class="nav pull-right">
-					<li><a href="<?= \app\Relay::route('\ibidem\access\a12n')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
+					<li><a href="<?= \app\URL::route('\ibidem\access\a12n')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
 				</ul>
 			</div>
 		</div>

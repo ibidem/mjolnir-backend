@@ -62,7 +62,7 @@ class Context_Backend extends \app\Instantiatable
 							(
 								'title' => $tool['title'],
 								'icon' => isset($tool['icon']) ? $tool['icon'] : null,
-								'url' => \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]),
+								'url' => \app\URL::route('\ibidem\backend')->url(['slug' => $slug]),
 								'slug' => $slug
 							);
 					}

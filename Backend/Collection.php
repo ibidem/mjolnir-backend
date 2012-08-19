@@ -32,7 +32,7 @@ class Backend_Collection extends \app\Instantiatable
 	 */
 	function action_new()
 	{
-		if (\app\Layer_HTTP::request_method() === \ibidem\types\HTTP::POST)
+		if (\app\Server::request_method() === 'POST')
 		{
 			$class = static::resolve_class();
 			if ($errors = $class::push($_POST))
@@ -56,7 +56,7 @@ class Backend_Collection extends \app\Instantiatable
 		}
 		
 		// GET request; redirect
-		\app\Relay::route('\ibidem\backend')
+		\app\URL::route('\ibidem\backend')
 			->url(['slug' => $this->index]);	
 	}
 	
@@ -113,6 +113,9 @@ class Backend_Collection extends \app\Instantiatable
 				['slug' => $this->index]
 			);
 	}
+	
+	// ------------------------------------------------------------------------
+	// Context
 	
 	/**
 	 * @return array of arrays; collection entries

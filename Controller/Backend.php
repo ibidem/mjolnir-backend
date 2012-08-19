@@ -9,6 +9,8 @@
  */
 class Controller_Backend extends \app\Controller_HTTP
 {
+	protected static $target = 'backend';
+	
 	/**
 	 * @var \app\View 
 	 */
@@ -52,7 +54,7 @@ class Controller_Backend extends \app\Controller_HTTP
 		
 		\app\GlobalEvent::fire('webpage:title', $page_title);
 		
-		$jquery = \app\Relay::route('\ibidem\theme\Layer_Theme::script')
+		$jquery = \app\URL::route('\ibidem\theme\Layer_Theme::script')
 			->url
 			(
 				[
@@ -181,10 +183,10 @@ class Controller_Backend extends \app\Controller_HTTP
 	 * @param string action
 	 * @return string 
 	 */	
-	public function action($action)
+	function action($action)
 	{
 		$relay = $this->layer->get_relay();
-		return $relay['route']->url(['task' => $action, 'slug' => $this->params->get('slug')]);
+		return $relay['matcher']->url(['task' => $action, 'slug' => $this->params->get('slug')]);
 	}
 	
 	/**
@@ -193,7 +195,7 @@ class Controller_Backend extends \app\Controller_HTTP
 	 */
 	function backend($slug)
 	{
-		return \app\Relay::route('\ibidem\backend')->url(['slug' => $slug]);
+		return \app\URL::route('\ibidem\backend')->url(['slug' => $slug]);
 	}
 	
 	/**
