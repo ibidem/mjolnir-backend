@@ -45,10 +45,9 @@ class Backend_Collection extends \app\Instantiatable
 			}
 			else # errors is null (success
 			{
-				\app\Layer_HTTP::redirect
+				\app\Server::redirect
 					(
-						'\ibidem\backend', 
-						['slug' => $this->index]
+						\app\URL::href('\ibidem\backend', ['slug' => $this->index])
 					);
 				
 				return null;
@@ -72,10 +71,9 @@ class Backend_Collection extends \app\Instantiatable
 		
 		if (empty($errors))
 		{
-			\app\Layer_HTTP::redirect
+			\app\Server::redirect
 				(
-					'\ibidem\backend', 
-					['slug' => $this->index]
+					\app\URL::href('\ibidem\backend', ['slug' => $this->index])
 				);
 		}
 		else # got errors
@@ -107,10 +105,9 @@ class Backend_Collection extends \app\Instantiatable
 		$class = static::resolve_class();
 		$class::delete([$_POST['id']]);
 		
-		\app\Layer_HTTP::redirect
+		\app\Server::redirect
 			(
-				'\ibidem\backend', 
-				['slug' => $this->index]
+				\app\URL::href('\ibidem\backend', ['slug' => $this->index])
 			);
 	}
 	
