@@ -127,6 +127,7 @@ class Controller_Backend extends \app\Controller_Web
 			(
 				\app\ThemeView::instance()
 					->theme('ibidem/backend')
+					->style('default')
 					->target('wrapper')
 					->layer($this->layer)
 					->control($this)
