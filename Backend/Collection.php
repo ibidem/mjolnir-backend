@@ -1,7 +1,7 @@
-<?php namespace ibidem\backend;
+<?php namespace mjolnir\backend;
 
 /**
- * @package    ibidem
+ * @package    mjolnir
  * @category   Backend
  * @author     Ibidem
  * @copyright  (c) 2012, Ibidem Team
@@ -47,7 +47,7 @@ class Backend_Collection extends \app\Instantiatable
 			{
 				\app\Server::redirect
 					(
-						\app\URL::href('\ibidem\backend', ['slug' => $this->index])
+						\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
 					);
 				
 				return null;
@@ -55,7 +55,7 @@ class Backend_Collection extends \app\Instantiatable
 		}
 		
 		// GET request; redirect
-		\app\URL::route('\ibidem\backend')
+		\app\URL::route('\mjolnir\backend')
 			->url(['slug' => $this->index]);	
 	}
 	
@@ -73,7 +73,7 @@ class Backend_Collection extends \app\Instantiatable
 		{
 			\app\Server::redirect
 				(
-					\app\URL::href('\ibidem\backend', ['slug' => $this->index])
+					\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
 				);
 		}
 		else # got errors
@@ -107,7 +107,7 @@ class Backend_Collection extends \app\Instantiatable
 		
 		\app\Server::redirect
 			(
-				\app\URL::href('\ibidem\backend', ['slug' => $this->index])
+				\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
 			);
 	}
 	

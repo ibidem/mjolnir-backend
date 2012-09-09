@@ -1,4 +1,4 @@
-<?php namespace ibidem\backend;
+<?php namespace mjolnir\backend;
 
 $mvc_stack = function ($relay, $target)
 	{
@@ -14,4 +14,4 @@ $mvc_stack = function ($relay, $target)
 			);
 	};
 
-\app\Relay::process('\ibidem\backend', $mvc_stack);
+\app\Relay::process('\mjolnir\backend', $mvc_stack);

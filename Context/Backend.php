@@ -1,7 +1,7 @@
-<?php namespace ibidem\backend;
+<?php namespace mjolnir\backend;
 
 /**
- * @package    ibidem
+ * @package    mjolnir
  * @category   Context
  * @author     Ibidem
  * @copyright  (c) 2012, Ibidem Team
@@ -10,7 +10,7 @@
 class Context_Backend extends \app\Instantiatable
 {
 	/**
-	 * @var \ibidem\types\View 
+	 * @var \mjolnir\types\View 
 	 */
 	private $view;
 	
@@ -20,9 +20,9 @@ class Context_Backend extends \app\Instantiatable
 	private $pageslug;
 	
 	/**
-	 * @param \ibidem\types\View view
+	 * @param \mjolnir\types\View view
 	 */
-	function set_view(\ibidem\types\View $view)
+	function set_view(\mjolnir\types\View $view)
 	{
 		$this->view = $view;
 	}
@@ -56,13 +56,13 @@ class Context_Backend extends \app\Instantiatable
 			{
 				if ( ! isset($tool['hidden']) || ! $tool['hidden'])
 				{
-					if (\app\Access::can('\ibidem\backend', null, $slug))
+					if (\app\Access::can('\mjolnir\backend', null, $slug))
 					{
 						$resultset['tools'][] = array
 							(
 								'title' => $tool['title'],
 								'icon' => isset($tool['icon']) ? $tool['icon'] : null,
-								'url' => \app\URL::route('\ibidem\backend')->url(['slug' => $slug]),
+								'url' => \app\URL::route('\mjolnir\backend')->url(['slug' => $slug]),
 								'slug' => $slug
 							);
 					}

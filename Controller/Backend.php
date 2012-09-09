@@ -1,7 +1,7 @@
-<?php namespace ibidem\backend;
+<?php namespace mjolnir\backend;
 
 /**
- * @package    ibidem
+ * @package    mjolnir
  * @category   Controller
  * @author     Ibidem
  * @copyright  (c) 2012, Ibidem Team
@@ -54,7 +54,7 @@ class Controller_Backend extends \app\Controller_Web
 		
 		\app\GlobalEvent::fire('webpage:title', $page_title);
 		
-		$jquery = \app\URL::route('\ibidem\theme\Layer_Theme::script')
+		$jquery = \app\URL::route('\mjolnir\theme\Layer_Theme::script')
 			->url
 			(
 				[
@@ -152,7 +152,7 @@ class Controller_Backend extends \app\Controller_Web
 		else # slug is present
 		{
 			// validate			
-			if (\app\Access::can('\ibidem\backend', null, $slug))
+			if (\app\Access::can('\mjolnir\backend', null, $slug))
 			{
 				$tool = self::tool_config($slug);
 				
@@ -198,7 +198,7 @@ class Controller_Backend extends \app\Controller_Web
 	 */
 	function backend($slug)
 	{
-		return \app\URL::route('\ibidem\backend')->url(['slug' => $slug]);
+		return \app\URL::route('\mjolnir\backend')->url(['slug' => $slug]);
 	}
 	
 	/**

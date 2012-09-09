@@ -16,10 +16,10 @@
 			<div class="container">
 				<a class="brand" href="<?= $base_url ?>"><?= $site_title ?></a>
 				<ul class="nav">
-					<li><a href="<?= \app\URL::route('\ibidem\backend')->url() ?>"><i class="icon-cogs"></i> System Information</a></li>
+					<li><a href="<?= \app\URL::route('\mjolnir\backend')->url() ?>"><i class="icon-cogs"></i> System Information</a></li>
 				</ul>
 				<ul class="nav pull-right">
-					<li><a href="<?= \app\URL::route('\ibidem\access\a12n')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
+					<li><a href="<?= \app\URL::route('\mjolnir\access\a12n')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
 				</ul>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 				</p>
 			</noscript>
 
-			<? if (Access::can('\ibidem\backend', null, null, \app\A12n::guest())): ?>
+			<? if (Access::can('\mjolnir\backend', null, null, \app\A12n::guest())): ?>
 				<p class="alert alert-error">
 					<button data-dismiss="alert" class="close" type="button">×</button>
 					<big><strong>Major security vulnerability detected</strong>: guest role has access to backend systems!</big>

@@ -5,6 +5,6 @@
 
 // HowTo: order honeypot -n 'ibidem\backend'
 
-class Backend_Collection extends \ibidem\backend\Backend_Collection { /** @return \ibidem\backend\Backend_Collection */ static function instance() { return parent::instance(); } }
-class Context_Backend extends \ibidem\backend\Context_Backend { /** @return \ibidem\backend\Context_Backend */ static function instance() { return parent::instance(); } }
-class Controller_Backend extends \ibidem\backend\Controller_Backend { /** @return \ibidem\backend\Controller_Backend */ static function instance() { return parent::instance(); } }
+class Backend_Collection extends \mjolnir\backend\Backend_Collection { /** @return \mjolnir\backend\Backend_Collection */ static function instance() { return parent::instance(); } }
+class Context_Backend extends \mjolnir\backend\Context_Backend { /** @return \mjolnir\backend\Context_Backend */ static function instance() { return parent::instance(); } }
+class Controller_Backend extends \mjolnir\backend\Controller_Backend { /** @return \mjolnir\backend\Controller_Backend */ static function instance() { return parent::instance(); } }

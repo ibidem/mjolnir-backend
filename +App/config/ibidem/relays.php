@@ -1,6 +1,6 @@
 <?php return array
 	(
-		'\ibidem\backend' => array
+		'\mjolnir\backend' => array
 			(
 				'matcher' => \app\Route_Pattern::instance()
 					->standard('backend(/<slug>(/<task>))', ['task' => '[a-zA-Z0-9\-]+', 'slug' => '[a-zA-Z0-9\-]+']),
