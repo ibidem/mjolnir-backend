@@ -1,8 +1,8 @@
 <?php return array
 	(
-		'ibidem\backend' => array
+		'mjolnir\backend' => array
 			(
-				'major' => '1',
+				'major' => '0',
 				'minor' => '0',
 			)
 	);

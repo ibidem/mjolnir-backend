@@ -1,9 +1,9 @@
 {
-	"name": "ibidem/backend",
-	"version": "1.0.0",
-	"description": "ibidem backend module",
+	"name": "mjolnir/backend",
+	"version": "0.0",
+	"description": "Mjolnir backend module",
 	"keywords": ["backend"],
-	"homepage": "https://github.com/srcspider",
+	"homepage": "https://github.com/ibidem",
 	"type": "library",
 	"license": "BSD-2",
 	"authors": [
@@ -17,7 +17,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"ibidem\\backend": "../.."
+			"mjolnir\\backend": "../.."
 		}
 	}
 }
