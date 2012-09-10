@@ -215,7 +215,7 @@ class Controller_Backend extends \app\Controller_Web
 	 */
 	private static function tool_config($slug)
 	{
-		$backend_config = \app\CFS::config('ibidem/backend');
+		$backend_config = \app\CFS::config('mjolnir/backend');
 		foreach ($backend_config as $group => $tools)
 		{
 			foreach ($tools as $key => $tool)

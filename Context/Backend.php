@@ -40,7 +40,7 @@ class Context_Backend extends \app\Instantiatable
 	 */
 	function dashboard()
 	{
-		$backend_config = \app\CFS::config('ibidem/backend');
+		$backend_config = \app\CFS::config('mjolnir/backend');
 		
 		$result = [];
 		foreach ($backend_config as $key => $tools)
