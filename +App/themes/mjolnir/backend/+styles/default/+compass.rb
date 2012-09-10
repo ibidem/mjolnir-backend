@@ -1,6 +1,6 @@
 # Require any additional compass plugins here.
 
-# required ibidem configuration
+# required mjolnir configuration
 http_path = ""
 css_dir = "root"
 images_dir = "root/images"

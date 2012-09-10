@@ -7,6 +7,6 @@
 	
 		'autofills' => array
 			(
-				'#^Backend_.*$#' => \app\View::instance('ibidem/backend/autofills/Backend')->render(),
+				'#^Backend_.*$#' => \app\View::instance('mjolnir/backend/autofills/Backend')->render(),
 			),
 	);
