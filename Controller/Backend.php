@@ -58,7 +58,7 @@ class Controller_Backend extends \app\Controller_Web
 			->url
 			(
 				[
-					'theme' => 'ibidem/backend',
+					'theme' => 'mjolnir/backend',
 					'style' => 'default',
 					'version' => '0.0',
 					'target' => 'src/lib/plugins/jquery-1.7.2.min'
@@ -76,7 +76,7 @@ class Controller_Backend extends \app\Controller_Web
 		$this->body
 			(
 				\app\ThemeView::instance()
-					->theme('ibidem/backend')
+					->theme('mjolnir/backend')
 					->style('default')
 					->target('dashboard')
 					->layer($this->layer)
@@ -98,7 +98,7 @@ class Controller_Backend extends \app\Controller_Web
 		$this->body
 			(
 				\app\ThemeView::instance()
-					->theme('ibidem/backend')
+					->theme('mjolnir/backend')
 					->style('default')
 					->target('wrapper')
 					->layer($this->layer)
@@ -126,7 +126,7 @@ class Controller_Backend extends \app\Controller_Web
 		$this->body
 			(
 				\app\ThemeView::instance()
-					->theme('ibidem/backend')
+					->theme('mjolnir/backend')
 					->style('default')
 					->target('wrapper')
 					->layer($this->layer)
