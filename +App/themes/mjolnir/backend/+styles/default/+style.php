@@ -11,7 +11,7 @@
 			(
 				// twitter bootstrap
 				'+lib/twitter-bootstrap/bootstrap',
-				'+lib/twitter-bootstrap/responsive',
+				'+lib/twitter-bootstrap/extra',
 			
 				// jquery ui
 				'+lib/jquery/ui/jquery.ui.accordion',
