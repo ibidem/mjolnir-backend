@@ -61,7 +61,7 @@ class Controller_Backend extends \app\Controller_Web
 					'theme' => 'mjolnir/backend',
 					'style' => 'default',
 					'version' => '0.0',
-					'target' => 'src/lib/plugins/jquery-1.7.2.min'
+					'target' => 'src/+lib/jquery/jquery-1.8.2'
 				]
 			);
 

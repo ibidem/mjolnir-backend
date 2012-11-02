@@ -3,16 +3,16 @@
 		// mapping targets to files
 		'targets' => array
 			(
-				'wrapper' => 
-					[
+				'wrapper' => array
+					(
 						'components/base',
 						'wrapper' 
-					],
-				'dashboard' => 
-					[
+					),
+				'dashboard' => array
+					(
 						'components/base',
 						'dashboard'
-					],
+					),
 			
 			//// Exceptions ////////////////////////////////////////////////////
 			
