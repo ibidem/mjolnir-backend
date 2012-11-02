@@ -9,6 +9,30 @@
 		// common files
 		'common' => array
 			(
+				// twitter bootstrap
+				'+lib/twitter-bootstrap/bootstrap',
+				'+lib/twitter-bootstrap/responsive',
+			
+				// jquery ui
+				'+lib/jquery/ui/jquery.ui.accordion',
+				'+lib/jquery/ui/jquery.ui.autocomplete',
+				'+lib/jquery/ui/jquery.ui.button',
+				'+lib/jquery/ui/jquery.ui.core',
+				'+lib/jquery/ui/jquery.ui.datepicker',
+				'+lib/jquery/ui/jquery.ui.dialog',
+				'+lib/jquery/ui/jquery.ui.progressbar',
+				'+lib/jquery/ui/jquery.ui.resizable',
+				'+lib/jquery/ui/jquery.ui.selectable',
+				'+lib/jquery/ui/jquery.ui.slider',
+				'+lib/jquery/ui/jquery.ui.tabs',
+				'+lib/jquery/ui/jquery.ui.theme',
+
+				// mjolnir
+				'+lib/mjolnir/base',
+			
+				// chosen
+				'+lib/jquery/jquery.chosen',
+			
 				'unsorted',
 			),
 	
