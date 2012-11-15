@@ -75,16 +75,18 @@
 			// internationalization
 			//'+lib/jquery/ui/i18n/jquery-ui-i18n',
 		
-			// auto-binding for jquery ui
-			'+lib/jquery/main',
-		
 			// chosen
 			'+lib/jquery/chosen/jquery.chosen',
 			'+lib/jquery/chosen/init',
 		
 			// plugins
 			'+lib/jquery/jquery.hoverIntent',
-			'+lib/jquery/jquery.showLoading'
+			'+lib/jquery/jquery.showLoading',
+			'+lib/jquery/jquery.timepicker-addon',
+		
+			// auto-binding for jquery ui
+			'+lib/jquery/main',
+		
 		);
 	
 	$error_reporting = array

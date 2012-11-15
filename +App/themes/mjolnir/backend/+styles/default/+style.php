@@ -26,12 +26,13 @@
 				'+lib/jquery/ui/jquery.ui.slider',
 				'+lib/jquery/ui/jquery.ui.tabs',
 				'+lib/jquery/ui/jquery.ui.theme',
+			
+				// jquery plugins
+				'+lib/jquery/jquery.chosen',
+				'+lib/jquery/jquery.timepicker-addon',
 
 				// mjolnir
 				'+lib/mjolnir/base',
-			
-				// chosen
-				'+lib/jquery/jquery.chosen',
 			
 				'unsorted',
 			),
