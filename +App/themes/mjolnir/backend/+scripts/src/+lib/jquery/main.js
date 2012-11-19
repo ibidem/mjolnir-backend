@@ -7,7 +7,7 @@
 		});
 		$('.has-ui-datetimepicker').datetimepicker({ 
 			showAnim   : 'slide',
-			timeFormat: 'hh:mm',
+			timeFormat: 'HH:mm',
 			dateFormat : 'yy-mm-dd'
 		});
 	});
