@@ -42,7 +42,7 @@ class Controller_Backend extends \app\Controller_Web
 			$tool = self::tool_config($slug);
 			if ($tool === null)
 			{
-				throw new \app\Exception_NotAllowed('Access Denied.');
+				throw new \app\Exception_NotAllowed("Access Denied. ($slug)");
 			}
 			
 			$page_title = $tool['title'].' · Backend';
