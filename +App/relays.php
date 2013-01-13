@@ -1,17 +1,5 @@
 <?php namespace mjolnir\backend;
 
-$mvc_stack = function ($relay, $target)
-	{
-		\app\Layer::stack
-			(
-				\app\Layer_Access::instance()
-					->relay_config($relay)
-					->target($target),
-				\app\Layer_HTTP::instance(),
-				\app\Layer_HTML::instance(),
-				\app\Layer_MVC::instance()
-					->relay_config($relay)
-			);
-	};
+$mvc = \app\CFS::config('mjolnir/layer-stacks')['mvc'];
 
-\app\Relay::process('\mjolnir\backend', $mvc_stack);
+\app\Relay::process('\mjolnir\backend', $mvc);
