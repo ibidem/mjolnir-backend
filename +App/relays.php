@@ -2,4 +2,4 @@
 
 $mvc = \app\CFS::config('mjolnir/layer-stacks')['mvc'];
 
-\app\Relay::process('\mjolnir\backend', $mvc);
+\app\Router::process('\mjolnir\backend', $mvc);
