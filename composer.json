@@ -1,7 +1,7 @@
 {
 	"name": "mjolnir/backend",
 	"version": "0.0",
-	"description": "Universal entry point for admin-specific utilities and structures.",
+	"description": "Universal entry point(s) for admin-specific utilities and structures.",
 	"keywords": ["backend"],
 	"homepage": "https://github.com/ibidem",
 	"type": "library",
