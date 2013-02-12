@@ -1,6 +1,6 @@
 <?php return array
 	(
-		'\mjolnir\backend' => array
+		'mjolnir:backend.route' => array
 			(
 				'matcher' => \app\URLRoute::instance()
 					->urlpattern
