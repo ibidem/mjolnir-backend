@@ -33,7 +33,7 @@ class Controller_Backend extends \app\Controller_Contextual
 		// backend ignores language settings since different modules can be 
 		// injected in and (most likely) none of them will know which language 
 		// to support
-		\app\Lang::lang('en-us');
+		\app\Lang::lang('en-US');
 		
 		$slug = $this->params->get('slug', null);
 		

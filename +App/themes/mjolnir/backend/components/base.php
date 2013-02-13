@@ -6,7 +6,7 @@
 
 	$base_config = \app\CFS::config('mjolnir/base');
 	$site_title = $base_config['site:title'];
-	$base_url = '//'.$base_config['domain'].$base_config['path'].$base_config['site:frontend'];
+	$base_url = \app\Server::url_frontpage();
 ?>
 
 <div class="container">
@@ -19,7 +19,7 @@
 					<li><a href="<?= \app\URL::route('\mjolnir\backend')->url() ?>"><i class="icon-cogs"></i> System Information</a></li>
 				</ul>
 				<ul class="nav pull-right">
-					<li><a href="<?= \app\URL::route('\mjolnir\access\a12n')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
+					<li><a href="<?= \app\URL::route('mjolnir:access/auth.route')->url() ?>"><i class="icon-signin"></i> Lobby</a></li>
 				</ul>
 			</div>
 		</div>
