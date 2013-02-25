@@ -13,12 +13,12 @@ class Backend_Collection extends \app\Instantiatable
 	 * @var string
 	 */
 	protected $model = null;
-	
+
 	/**
 	 * @var string
 	 */
 	protected $index = null;
-	
+
 	/**
 	 * @return string class
 	 */
@@ -26,7 +26,7 @@ class Backend_Collection extends \app\Instantiatable
 	{
 		return '\app\Model_'.$this->model;
 	}
-	
+
 	/**
 	 * Action for creating new elements in the collection.
 	 */
@@ -47,44 +47,50 @@ class Backend_Collection extends \app\Instantiatable
 			{
 				\app\Server::redirect
 					(
-						\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
+						\app\URL::href('mjolnir:backend.route', ['slug' => $this->index])
 					);
-				
+
 				return null;
 			}
 		}
-		
+
 		// GET request; redirect
-		\app\URL::route('\mjolnir\backend')
-			->url(['slug' => $this->index]);	
+		\app\Server::redirect(\app\URL::href('mjolnir:backend.route', ['slug' => $this->index]));
 	}
-	
+
 	/**
 	 * Action for updating elements in the collection.
 	 */
 	function action_update()
 	{
 		$id = $_POST['id'];
-		
+
 		$class = static::resolve_class();
 		$errors = $class::update($id, $_POST);
-		
+
 		if (empty($errors))
 		{
-			\app\Server::redirect
-				(
-					\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
-				);
+			\app\Server::redirect(\app\URL::href('mjolnir:backend.route', ['slug' => $this->index]));
 		}
 		else # got errors
 		{
 			$key = \strtolower($this->model).'-update';
 			$errors = [$key => $errors];
-			
+
 			return $errors;
 		}
 	}
-	
+
+	function action_aggregate()
+	{
+		if (isset($_POST, $_POST['delete']))
+		{
+			return $this->action_delete();
+		}
+
+		throw \app\Exception('Unrecognized aggregate process.');
+	}
+
 	/**
 	 * Action for deleting elements in the collection.
 	 */
@@ -96,7 +102,7 @@ class Backend_Collection extends \app\Instantiatable
 			$class::delete($_POST['selected']);
 		}
 	}
-	
+
 	/**
 	 * Action for deleting a single element in the collection.
 	 */
@@ -104,16 +110,13 @@ class Backend_Collection extends \app\Instantiatable
 	{
 		$class = static::resolve_class();
 		$class::delete([$_POST['id']]);
-		
-		\app\Server::redirect
-			(
-				\app\URL::href('\mjolnir\backend', ['slug' => $this->index])
-			);
+
+		\app\Server::redirect(\app\URL::href('mjolnir:backend.route', ['slug' => $this->index]));
 	}
-	
+
 	// ------------------------------------------------------------------------
 	// Context
-	
+
 	/**
 	 * @return array of arrays; collection entries
 	 */
@@ -122,7 +125,17 @@ class Backend_Collection extends \app\Instantiatable
 		$class = static::resolve_class();
 		return $class::entries($page, $limit, $offset, $order);
 	}
-	
+
+	/**
+	 * @return array of arrays; collection search entries
+	 */
+	function search($search, $columns, $page, $limit, $offset, array $order = [])
+	{
+		$class = static::resolve_class();
+		$search_entries = $class::search($search, $columns, $page, $limit, $offset, $order);
+		return $class::select_entries(\app\Arr::gather($search_entries, 'id'));
+	}
+
 	/**
 	 * @return array collection entry
 	 */
@@ -131,7 +144,7 @@ class Backend_Collection extends \app\Instantiatable
 		$class = '\app\Model_'.$this->model;
 		return $class::entry($id);
 	}
-	
+
 	/**
 	 * @return \app\Pager
 	 */

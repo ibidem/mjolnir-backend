@@ -7,7 +7,7 @@
 				(
 					Allow::relays
 						(
-							'\mjolnir\backend'
+							'mjolnir:backend.route'
 						)
 						->all_parameters(),
 				),

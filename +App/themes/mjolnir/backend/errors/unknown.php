@@ -2,6 +2,4 @@
 
 <p>An unknown error has occured and caused a system crash. Sorry for the inconvenience!</p>
 
-<?= \app\Exception::debuginfo_for($exception) ?>
-
 

@@ -1,2 +1,3 @@
-# ignore closure compiler files
-compiler.jar
+library/compiler.jar
+library/*.zip
+library/*.gz

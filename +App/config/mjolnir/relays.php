@@ -14,6 +14,6 @@
 				'enabled' => true,
 			// MVC
 				'controller' => '\app\Controller_Backend',
-				'action' => 'action_route',
+				'action' => 'route',
 			),
 	);

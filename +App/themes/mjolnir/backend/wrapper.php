@@ -1,3 +1,3 @@
 <?= $control->page()
-	->variable('theme', $theme)
+	->pass('theme', $theme)
 	->render() ?>

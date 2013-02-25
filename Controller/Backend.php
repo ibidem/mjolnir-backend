@@ -7,15 +7,18 @@
  * @copyright  (c) 2012, Ibidem Team
  * @license    https://github.com/ibidem/ibidem/blob/master/LICENSE.md
  */
-class Controller_Backend extends \app\Controller_Contextual
+class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controller
 {
-	protected static $target = 'backend';
-	
+	use \app\Trait_Controller
+		{
+			preprocess as protected trait_preprocess;
+		}
+
 	/**
-	 * @var \app\View 
+	 * @var \app\View
 	 */
-	private $page;
-	
+	protected $page;
+
 	/**
 	 * @return \app\View page
 	 */
@@ -23,153 +26,139 @@ class Controller_Backend extends \app\Controller_Contextual
 	{
 		return $this->page;
 	}
-	
+
 	/**
 	 * General purpose settings.
 	 */
-	function before() 
+	function preprocess()
 	{
-		parent::before();
-		// backend ignores language settings since different modules can be 
-		// injected in and (most likely) none of them will know which language 
+		$this->trait_preprocess();
+
+		// backend ignores language settings since different modules can be
+		// injected in and (most likely) none of them will know which language
 		// to support
-		\app\Lang::lang('en-US');
-		
-		$slug = $this->params->get('slug', null);
-		
+		\app\Lang::targetlang_is('en-US');
+
+		$slug = $this->channel()->get('relaynode')->get('slug', null);
+
 		if ($slug !== null)
 		{
-			$tool = self::tool_config($slug);
+			$tool = static::tool_config($slug);
+
 			if ($tool === null)
 			{
 				throw new \app\Exception_NotAllowed('Access Denied.');
 			}
-			
+
 			$page_title = $tool['title'].' · Backend';
 		}
 		else # no slug
 		{
 			$page_title = 'Backend';
 		}
-		
-		\app\GlobalEvent::fire('webpage:title', $page_title);
-		
-		$jquery = \app\URL::route('\mjolnir\theme\Layer_Theme::script')
-			->url
-			(
-				[
-					'theme' => 'mjolnir/backend',
-					'style' => 'default',
-					'version' => '0.0',
-					'target' => 'src/+lib/jquery/jquery-1.8.2'
-				]
-			);
 
-		\app\GlobalEvent::fire('webpage:head-script', $jquery);
+		$this->channel()->set('web:title', $page_title);
+
+//		$jquery = \app\URL::route('\mjolnir\theme\Layer_Theme::script')
+//			->url
+//			(
+//				[
+//					'theme' => 'mjolnir/backend',
+//					'style' => 'default',
+//					'version' => '0.0',
+//					'target' => 'src/+lib/jquery/jquery-1.8.2'
+//				]
+//			);
+
+//		\app\GlobalEvent::fire('webpage:head-script', $jquery);
 	}
-	
+
 	/**
 	 * Show backend.
 	 */
-	function action_index()
+	function public_index()
 	{
-		$this->body
-			(
-				\app\ThemeView::instance()
-					->theme('mjolnir/backend')
-					->style('default')
-					->target('dashboard')
-					->layer($this->layer)
-					->control($this)
-					->context(\app\Context_Backend::instance())
-					->render()
-			);
+		$theme = \app\Theme::instance('mjolnir/backend')
+			->channel_is($this->channel());
+
+		return \app\ThemeView::fortarget('dashboard', $theme)
+			->pass('context', \app\Context_Backend::instance())
+			->pass('control', $this);
 	}
-	
+
 	/**
 	 * Render view.
 	 */
 	function view($config)
 	{
 		$this->page = \app\View::instance($config['view'])
-			->variable('context', $config['context']::instance())
-			->variable('control', $this);
-		
-		$this->body
-			(
-				\app\ThemeView::instance()
-					->theme('mjolnir/backend')
-					->style('default')
-					->target('wrapper')
-					->layer($this->layer)
-					->control($this)
-					->context(\app\Context_Backend::instance())
-					->render()
-			);
+			->pass('context', $config['context']::instance())
+			->pass('control', $this);
+
+		$theme = \app\Theme::instance('mjolnir/backend')
+			->channel_is($this->channel());
+
+		return \app\ThemeView::fortarget('wrapper', $theme)
+			->pass('control', $this)
+			->pass('context', \app\Context_Backend::instance());
 	}
-	
+
 	/**
 	 * Backend task.
 	 */
 	function task($task, $config)
 	{
 		$context = $config['context']::instance();
-		
+
 		$task = \str_replace('-', '_', \strtolower($task));
 		$errors = \call_user_func([$context, 'action_'.$task]);
-		
+
 		$this->page = \app\View::instance($config['view'])
-			->variable('context', $context)
-			->variable('control', $this)
-			->variable('errors', $errors);
-		
-		$this->body
-			(
-				\app\ThemeView::instance()
-					->theme('mjolnir/backend')
-					->style('default')
-					->target('wrapper')
-					->layer($this->layer)
-					->control($this)
-					->context(\app\Context_Backend::instance())
-					->render()
-			);
-	}	
-	
+			->pass('context', $context)
+			->pass('control', $this)
+			->bind('errors', $errors);
+
+		$theme = \app\Theme::instance('mjolnir/backend')
+			->channel_is($this->channel());
+
+		return \app\ThemeView::fortarget('wrapper', $theme)
+			->pass('control', $this)
+			->pass('context', \app\Context_Backend::instance());
+	}
+
 	/**
 	 * Route to slug and task.
 	 */
 	function action_route()
 	{
-		$slug = $this->params->get('slug', null);
-		$task = $this->params->get('task', null);
-		
+		$relaynode = $this->channel()->get('relaynode');
+
+		$slug = $relaynode->get('slug', null);
+		$task = $relaynode->get('task', null);
+
 		if ($slug === null)
 		{
-			$this->action_index();
-			return;
+			return $this->public_index();
 		}
 		else # slug is present
 		{
-			// validate			
-			if (\app\Access::can('\mjolnir\backend', null, $slug))
+			// validate
+			if (\app\Access::can('mjolnir:backend.route', null, $slug))
 			{
 				$tool = self::tool_config($slug);
-				
+
 				if ($tool == null)
 				{
 					throw new \app\Exception_NotAllowed('Access Denied.');
 				}
-				
+
 				if ($task === null)
 				{
-					$this->view($tool);
-					return;
+					return $this->view($tool);
 				}
 				else # task provided
 				{
-					$this->task($task, $tool);
-					return;
+					return $this->task($task, $tool);
 				}
 			}
 			else # doesn't have access
@@ -181,39 +170,39 @@ class Controller_Backend extends \app\Controller_Contextual
 		// failed everything; assume misaccess
 		throw new \app\Exception_NotAllowed('Access Denied.');
 	}
-	
+
 	/**
 	 * @param string action
-	 * @return string 
-	 */	
+	 * @return string
+	 */
 	function action($action)
 	{
-		$relay = $this->layer->get_relay();
-		return $relay['matcher']->url(['task' => $action, 'slug' => $this->params->get('slug')]);
+		$relaynode = $this->channel()->get('relaynode');
+		return $relaynode->get('matcher')->url(['task' => $action, 'slug' => $relaynode->get('slug')]);
 	}
-	
+
 	/**
 	 * @param string slug
 	 * @return string URL
 	 */
 	function backend($slug)
 	{
-		return \app\URL::route('\mjolnir\backend')->url(['slug' => $slug]);
+		return \app\URL::route('mjolnir:backend.route')->url(['slug' => $slug]);
 	}
-	
+
 	/**
 	 * @return string page slug
 	 */
 	function pageslug()
 	{
-		return $this->params->get('slug', null);
+		return $this->channel()->get('relaynode')->get('slug', null);
 	}
-	
+
 	/**
 	 * @param string slug
 	 * @return tool or null
 	 */
-	private static function tool_config($slug)
+	protected static function tool_config($slug)
 	{
 		$backend_config = \app\CFS::config('mjolnir/backend');
 		foreach ($backend_config as $group => $tools)
@@ -226,7 +215,7 @@ class Controller_Backend extends \app\Controller_Contextual
 				}
 			}
 		}
-		
+
 		return null;
 	}
 

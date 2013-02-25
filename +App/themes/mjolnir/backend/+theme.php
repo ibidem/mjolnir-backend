@@ -1,41 +1,49 @@
 <?php return array
-	(	
-		// mapping targets to files
-		'targets' => array
+	(
+		'version' => '1.0',
+
+		'loaders' => array # null = default configuration
+			(
+				'style' => [ 'default.style' => 'system-panels' ],
+				'javascript' => null,
+			),
+
+		// target-to-file mapping
+		'mapping' => array
 			(
 				'wrapper' => array
 					(
-						'components/base',
-						'wrapper' 
+						'foundation/base',
+						'wrapper'
 					),
 				'dashboard' => array
 					(
-						'components/base',
+						'foundation/base',
 						'dashboard'
 					),
-			
+
 			//// Exceptions ////////////////////////////////////////////////////
-			
+
 				'exception-NotFound' => array
 					(
-						'components/errors/base',
-						'errors/not-found' 
+						'foundation/error',
+						'errors/not-found'
 					),
 				'exception-NotAllowed' => array
 					(
-						'components/errors/base',
-						'errors/not-allowed' 
+						'foundation/error',
+						'errors/not-allowed'
 					),
 				'exception-NotApplicable' => array
 					(
-						'components/errors/base',
-						'errors/not-applicable' 
+						'foundation/error',
+						'errors/not-applicable'
 					),
 				'exception-Unknown' => array
 					(
-						'components/errors/base',
-						'errors/unknown' 
-					),			
+						'foundation/error',
+						'errors/unknown'
+					),
 			),
-	);
 
+	); # theme

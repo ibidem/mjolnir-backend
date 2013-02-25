@@ -1,0 +1,49 @@
+@import 'bootstrap';
+
+// bootstrap
+@import '+vendor/bootstrap-sass/lib/bootstrap';
+//@import '+vendor/bootstrap-sass/lib/responsive';
+
+// font awesome
+$fontAwesomePath: '+vendor/fontawesome/font';
+@import '+vendor/fontawesome/sass/font-awesome';
+
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.sidebar-nav a i {
+	color: black;
+}
+
+.micro-col {
+	width: 1%;
+}
+
+.table-controls {
+	// make table cell occupy exact size
+	vertical-align: top;
+	white-space: nowrap;
+	width: 1%;
+}
+
+body {
+	// consistent page look on all sizes
+	overflow-y: scroll;
+}
+
+// strips margins off of an element
+.marginless {
+	margin: 0;
+}
+
+// strips margins out of pagination; since we rarely have direct class control
+// over it this class is meant to be placed on the immediate parent container
+.marginless-pagination > .pagination {
+	margin: 0;
+}

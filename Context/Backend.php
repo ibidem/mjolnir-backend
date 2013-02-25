@@ -10,15 +10,15 @@
 class Context_Backend extends \app\Instantiatable
 {
 	/**
-	 * @var \mjolnir\types\View 
+	 * @var \mjolnir\types\View
 	 */
 	private $view;
-	
+
 	/**
 	 * @var string or null
 	 */
 	private $pageslug;
-	
+
 	/**
 	 * @param \mjolnir\types\View view
 	 */
@@ -26,7 +26,7 @@ class Context_Backend extends \app\Instantiatable
 	{
 		$this->view = $view;
 	}
-	
+
 	/**
 	 * @return string
 	 */
@@ -34,14 +34,14 @@ class Context_Backend extends \app\Instantiatable
 	{
 		return $this->view;
 	}
-	
+
 	/**
 	 * @return array
 	 */
 	function dashboard()
 	{
 		$backend_config = \app\CFS::config('mjolnir/backend');
-		
+
 		$result = [];
 		foreach ($backend_config as $key => $tools)
 		{
@@ -51,48 +51,48 @@ class Context_Backend extends \app\Instantiatable
 					'title' => $key,
 					'tools' => [],
 				);
-			
+
 			foreach ($tools as $slug => $tool)
 			{
 				if ( ! isset($tool['hidden']) || ! $tool['hidden'])
 				{
-					if (\app\Access::can('\mjolnir\backend', null, $slug))
+					if (\app\Access::can('mjolnir:backend.route', null, $slug))
 					{
 						$resultset['tools'][] = array
 							(
 								'title' => $tool['title'],
 								'icon' => isset($tool['icon']) ? $tool['icon'] : null,
-								'url' => \app\URL::route('\mjolnir\backend')->url(['slug' => $slug]),
+								'url' => \app\URL::href('mjolnir:backend.route', ['slug' => $slug]),
 								'slug' => $slug
 							);
 					}
 				}
 			}
-			
+
 			if ( ! empty($resultset['tools']))
 			{
 				$result[] = $resultset;
 			}
 		}
-		
+
 		if (empty($result))
 		{
 			throw new \app\Exception_NotAllowed('You do not have sufficient privilages to access this page.');
 		}
-		
+
 		return $result;
 	}
-	
+
 	/**
 	 * @return \app\Context_Backend $this
 	 */
 	function set_pageslug($pageslug)
 	{
 		$this->pageslug = $pageslug;
-		
+
 		return $this;
 	}
-	
+
 	/**
 	 * @return string
 	 */
