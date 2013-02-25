@@ -132,7 +132,7 @@
 		</div>
 
 		<? foreach ($aggregate as $action => $button): ?>
-			<button name="<?= $action ?>"
+			<button name="<?= $action ?>" type="submit"
 					class="btn btn-mini<?= isset($button['class']) ? ' '.$button['class'] : '' ?>"
 					<?= $form->mark() ?>>
 
