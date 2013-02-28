@@ -84,7 +84,7 @@ class Context_Backend extends \app\Instantiatable
 	}
 
 	/**
-	 * @return \app\Context_Backend $this
+	 * @return static $this
 	 */
 	function set_pageslug($pageslug)
 	{
