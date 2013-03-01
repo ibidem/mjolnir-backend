@@ -20,7 +20,7 @@ class Context_Backend extends \app\Instantiatable
 	private $pageslug;
 
 	/**
-	 * @param \mjolnir\types\View view
+	 * ...
 	 */
 	function set_view(\mjolnir\types\View $view)
 	{
