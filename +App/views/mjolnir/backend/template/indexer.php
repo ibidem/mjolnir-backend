@@ -39,7 +39,7 @@
 	}
 
 	$search_query = $search !== null ? 'q='.\urldecode($search) : null;
-	$limit_query = $default_pagelimit === $pagelimit ? '' : "limit=$pagelimit";
+	$limit_query = "limit=$pagelimit";
 	
 	if (empty($search))
 	{
@@ -69,8 +69,6 @@
 		->value_is($pagelimit)
 		->add('class', 'span4')
 		->add('class', 'text-right') ?>
-	
-	
 	
 	<button class="btn" type="submit" <?= $limit_form->mark() ?>>
 		Limit
