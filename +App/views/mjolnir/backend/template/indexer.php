@@ -67,7 +67,10 @@
 <div class="input-append pull-left">
 	<?= $limit_form->text('Show', 'limit')
 		->value_is($pagelimit)
-		->add('class', 'span4') ?>
+		->add('class', 'span4')
+		->add('class', 'text-right') ?>
+	
+	
 	
 	<button class="btn" type="submit" <?= $limit_form->mark() ?>>
 		Limit
