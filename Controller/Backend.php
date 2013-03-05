@@ -57,7 +57,7 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 			$page_title = 'Backend';
 		}
 
-		$this->channel()->set('web:title', $page_title);
+		$this->channel()->get('layer:html')->set('title', $page_title);
 
 //		$jquery = \app\URL::route('\mjolnir\theme\Layer_Theme::script')
 //			->url
