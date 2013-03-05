@@ -11,7 +11,7 @@
 
 			<div class="nav-collapse collapse">
 				<p class="navbar-text pull-right">
-					Logged in as <strong><?= Auth::userinfo()['nickname'] ?></strong>
+					Logged in as <strong><?= Auth::info()['nickname'] ?></strong>
 				</p>
 				<ul class="nav">
 					<li>

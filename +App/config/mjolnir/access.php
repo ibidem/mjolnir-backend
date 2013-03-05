@@ -9,7 +9,8 @@
 						(
 							'mjolnir:backend.route'
 						)
-						->all_parameters(),
+						->unrestricted(),
 				),
 		),
-);
+
+); # config
