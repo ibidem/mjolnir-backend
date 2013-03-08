@@ -136,7 +136,7 @@
 
 						<?= $delete_form = HTML::form($control->action('erase'), 'mjolnir:inline') ?>
 						<?= $delete_form->hidden('id')->value_is($entry['id']) ?>
-						<button <?= $delete_form->mark() ?> class="btn btn-mini btn-danger">
+						<button type="submit" <?= $delete_form->mark() ?> class="btn btn-mini btn-danger">
 							Delete
 						</button>
 
