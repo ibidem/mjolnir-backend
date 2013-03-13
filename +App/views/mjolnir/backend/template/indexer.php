@@ -63,30 +63,30 @@
 
 <br/>
 
-<?= $limit_form = HTML::queryform() ?>
-<div class="input-append pull-left">
-	<?= $limit_form->text('Show', 'limit')
-		->value_is($pagelimit)
-		->add('class', 'span4')
-		->add('class', 'text-right') ?>
-	
-	<button class="btn" type="submit" <?= $limit_form->mark() ?>>
-		Limit
-	</button>
-</div>
-
-
-<?= $search_form = HTML::queryform() ?>
-<div class="input-append pull-right">
-	<?= $search_form->text('Search', 'q')
-		->value_is($search) ?>
-	
-	<button class="btn" type="submit" <?= $search_form->mark() ?>>
-		Search
-	</button>
-</div>
 
 <? if ( ! empty($entries)): ?>
+
+	<?= $limit_form = HTML::queryform() ?>
+	<div class="input-append pull-left">
+		<?= $limit_form->text('Show', 'limit')
+			->value_is($pagelimit)
+			->add('class', 'span4')
+			->add('class', 'text-right') ?>
+
+		<button class="btn" type="submit" <?= $limit_form->mark() ?>>
+			Limit
+		</button>
+	</div>
+
+	<?= $search_form = HTML::queryform() ?>
+	<div class="input-append pull-right">
+		<?= $search_form->text('Search', 'q')
+			->value_is($search) ?>
+
+		<button class="btn" type="submit" <?= $search_form->mark() ?>>
+			Search
+		</button>
+	</div>
 
 	<?= $form = HTML::form($control->action('aggregate'))
 		->addfieldtemplate(':field') ?>

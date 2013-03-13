@@ -59,18 +59,32 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 
 		$this->channel()->get('layer:html')->set('title', $page_title);
 
-//		$jquery = \app\URL::route('\mjolnir\theme\Layer_Theme::script')
-//			->url
-//			(
-//				[
-//					'theme' => 'mjolnir/backend',
-//					'style' => 'default',
-//					'version' => '0.0',
-//					'target' => 'src/+lib/jquery/jquery-1.8.2'
-//				]
-//			);
+		$jquery_url = \app\URL::href
+			(
+				'mjolnir:theme/themedriver/javascript.route',
+				[
+					'theme' => 'mjolnir/backend',
+					'style' => 'default',
+					'version' => '0.0',
+					'target' => 'src/+vendor/jquery/jquery'
+				]
+			);
 
 //		\app\GlobalEvent::fire('webpage:head-script', $jquery);
+		
+		$htmllayer = $this->channel()->get('layer:html');
+		
+		if ($htmllayer)
+		{
+			$htmllayer->add
+				(
+					'headscript', 
+					[
+						'type' => 'application/javascript', 
+						'src' => $jquery_url
+					]
+				);
+		}
 	}
 
 	/**

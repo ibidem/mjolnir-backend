@@ -43,7 +43,7 @@ class Backend_Collection extends \app\Instantiatable
 						$key => $errors,
 					);
 			}
-			else # errors is null (success
+			else # errors is null (success)
 			{
 				\app\Server::redirect
 					(
