@@ -70,8 +70,6 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 				]
 			);
 
-//		\app\GlobalEvent::fire('webpage:head-script', $jquery);
-		
 		$htmllayer = $this->channel()->get('layer:html');
 		
 		if ($htmllayer)
