@@ -73,7 +73,7 @@
 			->add('class', 'span4')
 			->add('class', 'text-right') ?>
 
-		<button class="btn" type="submit" <?= $limit_form->mark() ?>>
+		<button type="submit" class="btn" <?= $limit_form->mark() ?>>
 			Limit
 		</button>
 	</div>
@@ -83,7 +83,7 @@
 		<?= $search_form->text('Search', 'q')
 			->value_is($search) ?>
 
-		<button class="btn" type="submit" <?= $search_form->mark() ?>>
+		<button type="submit" class="btn" <?= $search_form->mark() ?>>
 			Search
 		</button>
 	</div>
@@ -153,7 +153,7 @@
 		</div>
 
 		<? foreach ($aggregate as $action => $button): ?>
-			<button name="<?= $action ?>" type="submit"
+			<button type="submit" name="<?= $action ?>"
 					class="btn btn-mini<?= isset($button['class']) ? ' '.$button['class'] : '' ?>"
 					<?= $form->mark() ?>>
 
