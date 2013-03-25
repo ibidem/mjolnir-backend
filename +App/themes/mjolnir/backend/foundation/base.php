@@ -6,7 +6,7 @@
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a href="<?= \app\Server::url_frontpage() ?>" class="brand">
-				<?= \app\CFS::config('mjolnir/base')['site:title'] ?>
+				<?= \app\CFS::config('mjolnir/base')['system']['title'] ?>
 			</a>
 
 			<div class="nav-collapse collapse">
