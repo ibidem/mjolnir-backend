@@ -103,16 +103,24 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 	 */
 	function view($config)
 	{
-		$this->page = \app\View::instance($config['view'])
-			->pass('context', $config['context']::instance())
-			->pass('control', $this);
+		try
+		{
+			$this->page = \app\View::instance($config['view'])
+				->pass('context', $config['context']::instance())
+				->pass('control', $this);
 
-		$theme = \app\Theme::instance('mjolnir/backend')
-			->channel_is($this->channel());
+			$theme = \app\Theme::instance('mjolnir/backend')
+				->channel_is($this->channel());
 
-		return \app\ThemeView::fortarget('wrapper', $theme)
-			->pass('control', $this)
-			->pass('context', \app\Context_Backend::instance());
+			return \app\ThemeView::fortarget('wrapper', $theme)
+				->pass('control', $this)
+				->pass('context', \app\Context_Backend::instance());
+		}
+		catch (\Exception $e)
+		{
+			\mjolnir\log_exception($e);
+			throw $e;
+		}
 	}
 
 	/**
