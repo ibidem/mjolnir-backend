@@ -118,8 +118,11 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 		}
 		catch (\Exception $e)
 		{
-			\mjolnir\log_exception($e);
-			throw $e;
+			// exceptions in the backend system may be too serious to go though 
+			// logging, so we output them directly since only administrators can
+			// access this section anyway
+			echo $e->getMessage();
+			exit(1);
 		}
 	}
 
