@@ -1,7 +1,0 @@
-{
-	"dependencies" : {
-		"jquery" : "1.9",
-		"bootstrap-sass": "git://github.com/jlong/sass-twitter-bootstrap.git",
-		"mjolnir-shadow": "git://github.com/ibidem/mjolnir-shadow.git"
-	}
-}

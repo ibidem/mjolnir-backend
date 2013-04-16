@@ -9,20 +9,19 @@
 	
 	$bootstrap = array
 		(
-			'+vendor/bootstrap-sass/js/bootstrap-tooltip',
-		
-			'+vendor/bootstrap-sass/js/bootstrap-affix',
-			'+vendor/bootstrap-sass/js/bootstrap-alert',
-			'+vendor/bootstrap-sass/js/bootstrap-button',
-			'+vendor/bootstrap-sass/js/bootstrap-carousel',
-			'+vendor/bootstrap-sass/js/bootstrap-collapse',
-			'+vendor/bootstrap-sass/js/bootstrap-dropdown',
-			'+vendor/bootstrap-sass/js/bootstrap-modal',
-			'+vendor/bootstrap-sass/js/bootstrap-popover',
-			'+vendor/bootstrap-sass/js/bootstrap-scrollspy',
-			'+vendor/bootstrap-sass/js/bootstrap-tab',
-			'+vendor/bootstrap-sass/js/bootstrap-transition',
-			'+vendor/bootstrap-sass/js/bootstrap-typeahead',
+			'+vendor/sass-bootstrap/bootstrap-tooltip',
+			'+vendor/sass-bootstrap/bootstrap-affix',
+			'+vendor/sass-bootstrap/bootstrap-alert',
+			'+vendor/sass-bootstrap/bootstrap-button',
+			'+vendor/sass-bootstrap/bootstrap-carousel',
+			'+vendor/sass-bootstrap/bootstrap-collapse',
+			'+vendor/sass-bootstrap/bootstrap-dropdown',
+			'+vendor/sass-bootstrap/bootstrap-modal',
+			'+vendor/sass-bootstrap/bootstrap-popover',
+			'+vendor/sass-bootstrap/bootstrap-scrollspy',
+			'+vendor/sass-bootstrap/bootstrap-tab',
+			'+vendor/sass-bootstrap/bootstrap-transition',
+			'+vendor/sass-bootstrap/bootstrap-typeahead',
 		);
 	
 	$jshadow = array
