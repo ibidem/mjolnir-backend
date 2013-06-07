@@ -102,7 +102,7 @@
 		<? if ($errors > 0): ?>
 			<div class="alert alert-error"><strong>Failed!</strong> Please check the tests bellow and documentation and enable/install/configure any missing requirements.</div>
 		<? elseif ($failed > 0): ?>
-			<div class="alert alert-warning"><strong>Passable.</strong> You are missing some non-critical components or have some strange configuration settings. The system may not be fit for production but will work fine in development.</div>
+			<div class="alert alert-warning"><strong>Usable.</strong> You are missing some non-critical components or have some strange configuration settings. The system may not be fit for production but will work fine in development.</div>
 		<? else: ?>
 			<div class="alert alert-success"><strong>All Requirements Satisfied.</strong> All systems have their required dependencies.</div>
 		<? endif; ?>
