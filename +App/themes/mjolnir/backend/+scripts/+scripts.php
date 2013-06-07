@@ -4,11 +4,13 @@
 
 	$unsorted = array
 		(
+			'+vendor/jquery/jquery',
 			'unsorted',
 		);
 	
 	$bootstrap = array
 		(
+			'+vendor/sass-bootstrap/bootstrap-tab',
 			'+vendor/sass-bootstrap/bootstrap-tooltip',
 			'+vendor/sass-bootstrap/bootstrap-affix',
 			'+vendor/sass-bootstrap/bootstrap-alert',
@@ -19,7 +21,6 @@
 			'+vendor/sass-bootstrap/bootstrap-modal',
 			'+vendor/sass-bootstrap/bootstrap-popover',
 			'+vendor/sass-bootstrap/bootstrap-scrollspy',
-			'+vendor/sass-bootstrap/bootstrap-tab',
 			'+vendor/sass-bootstrap/bootstrap-transition',
 			'+vendor/sass-bootstrap/bootstrap-typeahead',
 		);
