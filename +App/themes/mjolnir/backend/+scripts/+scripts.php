@@ -7,7 +7,7 @@
 			'+vendor/jquery/jquery',
 			'unsorted',
 		);
-	
+
 	$bootstrap = array
 		(
 			'+vendor/sass-bootstrap/bootstrap-tab',
@@ -24,7 +24,7 @@
 			'+vendor/sass-bootstrap/bootstrap-transition',
 			'+vendor/sass-bootstrap/bootstrap-typeahead',
 		);
-	
+
 	$jshadow = array
 		(
 			'+vendor/mjolnir-shadow/jshadow',
@@ -41,13 +41,14 @@
 			'+vendor/mjolnir-shadow/shadows/xsync',
 			'+vendor/mjolnir-shadow/shadows/xtoggle',
 		);
-	
+
 return array
 	(
+		'version' => '1.0.0',
 		'root' => 'root/',
 		'sources' => 'src/',
 		'mode' => 'complete',
-	
+
 	# complete mode
 
 		'complete-mapping' => \app\index
@@ -56,9 +57,9 @@ return array
 				$bootstrap,
 				$jshadow
 			),
-		
+
 	# targeted mode
-	
+
 		'targeted-common' => [ ],
 		'targeted-mapping' => [ ],
 
