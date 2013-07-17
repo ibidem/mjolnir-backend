@@ -38,9 +38,9 @@
 </div>
 
 <div class="container-fluid">
-	
+
 	<div class="row-fluid">
-		
+
 		<div class="span3">
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
@@ -61,13 +61,13 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<div class="span9">
 			<?= $entrypoint->render() ?>
 		</div>
-		
+
 	</div>
-	
+
 </div>
 
 

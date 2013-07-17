@@ -53,7 +53,7 @@
 								if (\is_array($statusinfo))
 								{
 									$status = \key($statusinfo);
-									$statushint = \current($statusinfo); 
+									$statushint = \current($statusinfo);
 								}
 								else # non-array status
 								{
@@ -112,7 +112,7 @@
 		<?= $checks ?>
 
 	</div>
-	
+
 	<div class="tab-pane" id="components-tab">
 		<table class="table table-striped">
 			<thead>
@@ -131,5 +131,5 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 </div>

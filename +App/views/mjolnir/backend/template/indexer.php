@@ -4,7 +4,7 @@
 	/* @var $theme ThemeView */
 
 	$default_pagelimit = 25;
-	
+
 	// input variables
 
 	$plural = isset($plural) ? $plural : 'entries';
@@ -40,11 +40,11 @@
 
 	$search_query = $search !== null ? 'q='.\urldecode($search) : null;
 	$limit_query = "limit=$pagelimit";
-	
+
 	if (empty($search))
 	{
 		$entries = $context->entries($page, $pagelimit, 0, $order);
-		
+
 		$pager = $context->pager();
 		/* @var $pager Pager */
 		$pager

@@ -71,14 +71,14 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 			);
 
 		$htmllayer = $this->channel()->get('layer:html');
-		
+
 		if ($htmllayer)
 		{
 			$htmllayer->add
 				(
-					'headscript', 
+					'headscript',
 					[
-						'type' => 'application/javascript', 
+						'type' => 'application/javascript',
 						'src' => $jquery_url
 					]
 				);
@@ -118,10 +118,10 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 		}
 		catch (\Exception $e)
 		{
-			// exceptions in the backend system are too serious to go though 
-			// logging (chances are logging may not even be working). To make 
+			// exceptions in the backend system are too serious to go though
+			// logging (chances are logging may not even be working). To make
 			// sure the local administrators know what they are easily we output
-			// them directly; this is secure since only system administrators 
+			// them directly; this is secure since only system administrators
 			// should have access to backend panels
 			echo $e->getMessage();
 			exit(1);
