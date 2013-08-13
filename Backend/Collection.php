@@ -120,7 +120,7 @@ class Backend_Collection extends \app\Instantiatable
 	/**
 	 * @return array of arrays; collection entries
 	 */
-	function entries($page, $limit, $offset = 0, array $order = [], $constraints = [])
+	function entries($page, $limit, $offset = 0, array $order = [], array $constraints = [])
 	{
 		$class = static::resolve_class();
 		return $class::entries($page, $limit, $offset, $order, $constraints);

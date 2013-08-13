@@ -25,7 +25,7 @@ class Context_Backend extends \mjolnir\backend\Context_Backend
  * @method \app\Controller_Backend add_preprocessor($name, $processor)
  * @method \app\Controller_Backend add_postprocessor($name, $processor)
  * @method \app\Controller_Backend postprocess()
- * @method \app\Controller_Backend channel_is($channel)
+ * @method \app\Controller_Backend channel_is($channel = null)
  * @method \app\Channel channel()
  * @method \app\Controller_Backend preprocess()
  */
