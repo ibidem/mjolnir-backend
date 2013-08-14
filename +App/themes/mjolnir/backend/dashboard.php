@@ -84,6 +84,9 @@
 									case 'satisfied':
 										$labelclass = 'label-success';
 										break;
+									case 'skipped':
+										$labelclass = 'label-success';
+										break;
 								}
 							?>
 							<tr class="<?= $statusclass ?>">
