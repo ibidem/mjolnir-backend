@@ -24,7 +24,18 @@ class Backend_Collection extends \app\Instantiatable
 	 */
 	protected function resolve_class()
 	{
-		return '\app\Model_'.$this->model;
+		if (\class_exists('\app\Model_'.$this->model))
+		{
+			return '\app\Model_'.$this->model;
+		}
+		else if (\class_exists('\app\\'.$this->model.'Lib'))
+		{
+			return '\app\\'.$this->model.'Lib';
+		}
+		else # assume full class name
+		{
+			throw new \app\Exception_NotApplicable('Model ['.$this->model.'] can not be resolved to a class.');
+		}
 	}
 
 	/**
