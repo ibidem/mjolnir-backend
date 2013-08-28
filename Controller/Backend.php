@@ -76,7 +76,7 @@ class Controller_Backend extends \app\Puppet implements \mjolnir\types\Controlle
 		{
 			$htmllayer->add
 				(
-					'headscript',
+					'startup-script',
 					[
 						'type' => 'application/javascript',
 						'src' => $jquery_url
