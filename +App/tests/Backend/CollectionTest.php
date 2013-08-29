@@ -2,7 +2,7 @@
 
 use \mjolnir\backend\Backend_Collection;
 
-class Backend_CollectionTest extends \PHPUnit_Framework_TestCase
+class Backend_CollectionTest extends \app\PHPUnit_Framework_TestCase
 {
 	/** @test */ function
 	can_be_loaded()
