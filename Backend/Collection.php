@@ -152,7 +152,7 @@ class Backend_Collection extends \app\Instantiatable
 	 */
 	function entry($id)
 	{
-		$class = '\app\Model_'.$this->model;
+		$class = static::resolve_class();
 		return $class::entry($id);
 	}
 
